@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/exam/exam",
+    "pages/tool/tool",
+    "pages/home/home",
+    "pages/center/center"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "开心学",
+    "navigationBarBackgroundColor": "#845EC2",
+    "backgroundColor": "#845EC2"
+  },
+  "usingComponents": {}
+}

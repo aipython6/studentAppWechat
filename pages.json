@@ -1,0 +1,46 @@
+{	
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+		    "path" : "pages/exam/exam",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "考试导航",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+		,{
+            "path" : "pages/tool/tool",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "必备工具",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/home/home",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人中心",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/center/center",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "学习中心",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "开心学",
+		"navigationBarBackgroundColor": "#845EC2",
+		"backgroundColor": "#845EC2"
+	}
+}
