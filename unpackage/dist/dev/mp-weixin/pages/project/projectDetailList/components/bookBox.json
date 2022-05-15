@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "u-cell-group": "/uview/components/u-cell-group/u-cell-group",
+    "u-cell": "/uview/components/u-cell/u-cell"
+  },
+  "component": true
+}

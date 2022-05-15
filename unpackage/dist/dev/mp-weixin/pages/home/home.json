@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "个人中心",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "userinfo": "/components/myComponents/home/userinfo",
+    "menu-list": "/components/myComponents/home/menuList"
+  }
 }

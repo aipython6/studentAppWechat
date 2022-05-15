@@ -1,0 +1,100 @@
+<template>
+	<!-- 课程学习列表的组件 -->
+	<view class="container">
+		<u-swipe-action>
+				<u-swipe-action-item :options="options" :duration="1000">
+						<view class="swipe-action u-border-top u-border-bottom">
+								<view class="swipe-action__content">
+									<u-row justify="space-between" gutter="10">
+										<u-col span="1"><text style="font-size: 16px;">{{ pid }}.</text></u-col>
+										<u-col span="3">
+											<u--image :src="avatar" radius="10" :fade="true" duration="450" height="80" width="80" />
+										</u-col>
+										<u-col span="8">
+											<view class="line1">
+												<text class="swipe-action__content__text">课程名称: {{ projectName }}</text>
+												<text class="swipe-action__content__text">出版社: {{ publshedName }}</text>
+											</view>
+											<view class="line2">
+												<text class="swipe-action__content__text">最近学习: {{ studyTime }}</text>
+											</view>
+											<view class="line3">
+												<text class="swipe-action__content__text">学习时长: {{ sumStudyTime }}分钟</text>
+											</view>
+										</u-col>
+									</u-row>
+								</view>
+						</view>
+				</u-swipe-action-item>
+		</u-swipe-action>
+	</view>
+</template>
+
+<script>
+	export default {
+		name: 'projectItem',
+		props: {
+			pid: {
+				type: Number,
+			},
+			avatar: {
+				type: String,
+				default: () => {
+					return ''
+				}
+			},
+			projectName: {
+				type: String,
+				default: () => {
+					return ''
+				}
+			},
+			/// 出版社
+			publshedName: {
+				type: String,
+				default: () => {
+					return ''
+				}
+			},
+			// 最近一次学习时间
+			studyTime: {
+				type: String,
+				default: () => {
+					return ''
+				}
+			},
+			// 该门课程学习时长
+			sumStudyTime: {
+				type: String,
+				default: () => {
+					return ''
+				}
+			}
+		},
+		data() {
+			return {
+				options: [{text: '删除',style: { backgroundColor: '#fd1d1d'} }]
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	.container {
+		.swipe-action {
+				&__content {
+					.line1 {
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+					}
+					padding: 25rpx 10rpx;
+					&__text {
+						font-size: 14px;
+						color: #94bbe9;
+						padding-left: 30rpx;
+				}
+			}
+		}
+	}
+</style>

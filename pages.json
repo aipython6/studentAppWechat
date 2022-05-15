@@ -1,37 +1,107 @@
 {	
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	{
+			"path" : "pages/center/center",
+			"style" :                                                                                    
 		{
-		    "path" : "pages/exam/exam",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "考试导航",
-		        "enablePullDownRefresh": false
-		    }
-		    
+			"navigationBarTitleText": "学习中心",
+			"enablePullDownRefresh": false
 		}
-		,{
-            "path" : "pages/tool/tool",
+	},
+	
+		{
+			"path" : "pages/home/home",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false
+			}
+		},
+		
+		{
+			"path" : "pages/exam/exam",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "考试导航",
+				"enablePullDownRefresh": false
+			}
+		},
+		
+		{
+			"path" : "pages/tool/tool",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "必备工具",
+				"enablePullDownRefresh": false
+			}
+  },
+			{
+				"path":"pages/exam/websiteList/index",
+				"style" :                                                                                    
+				{
+					"navigationBarTitleText": "考试网站",
+					"enablePullDownRefresh": false
+				}
+			},
+			
+			{
+					"path" : "pages/home/userinfo/userinfo",
+					"style" :                                                                                    
+				{
+					"navigationBarTitleText": "个人信息设置",
+					"enablePullDownRefresh": false
+				}
+			},
+			
+			{
+				"path" : "pages/home/studyRecord/studyRecord",
+				"style" :                                                                                    
+				{
+								"navigationBarTitleText": "学习记录",
+								"enablePullDownRefresh": false
+				}      
+			},
+			
+			{
+				"path" : "pages/home/projectCollected/projectCollected",
+				"style" :                                                                                    
+				{
+					"navigationBarTitleText": "课程收藏",
+					"enablePullDownRefresh": false
+				}
+   },
+			
+			{
+				"path" : "pages/project/index",
+				"style" :                                                                                    
+				{
+					"navigationBarTitleText": "课程列表",
+					"enablePullDownRefresh": false
+				}
+   }
+        ,{
+            "path" : "pages/project/projectDetailList/index",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "必备工具",
+                "navigationBarTitleText": "课程详情",
                 "enablePullDownRefresh": false
             }
             
-        }
+        },
+								{
+								    "path" : "pages/project/projectDetailList/bookList",
+								    "style" :                                                                                    
+								    {
+								        "navigationBarTitleText": "课程详情",
+								        "enablePullDownRefresh": false
+								    }
+								    
+								}
         ,{
-            "path" : "pages/home/home",
+            "path" : "pages/book/index",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "个人中心",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/center/center",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "学习中心",
+                "navigationBarTitleText": "课本学习",
                 "enablePullDownRefresh": false
             }
             
@@ -39,8 +109,48 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "开心学",
+		"navigationBarTitleText": "畅学",
 		"navigationBarBackgroundColor": "#845EC2",
 		"backgroundColor": "#845EC2"
-	}
+	},
+	"tabBar": {
+		"color": "#000000",
+		"selectedColor": "#090979",
+		"backgroundColor": "#FFF",
+		"list": [
+			{
+				"pagePath": "pages/exam/exam",
+				"text": "考试导航",
+				"iconPath": "static/images/icons/导航.png",
+				"selectedIconPath": "static/images/icons/导航fulled.png"
+			},
+			{
+				"pagePath": "pages/tool/tool",
+				"text": "必备工具",
+				"iconPath": "static/images/icons/工具.png",
+				"selectedIconPath": "static/images/icons/工具fulled.png"
+			},
+			{
+				"pagePath": "pages/center/center",
+				"text": "学习中心",
+				"iconPath": "static/images/icons/学习.png",
+				"selectedIconPath": "static/images/icons/学习fulled.png"
+			},
+			{
+				"pagePath": "pages/home/home",
+				"text": "个人中心",
+				"iconPath": "static/images/icons/个人中心.png",
+				"selectedIconPath": "static/images/icons/个人中心fulled.png"
+			}
+		]
+	},
+	"easycom": {
+			// 下载安装的方式需要前面的"@/"，npm安装的方式无需"@/"
+			// 下载安装方式
+			// "^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue",
+			"^u-(.*)": "@/uview/components/u-$1/u-$1.vue",
+			// npm安装方式
+			// "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+			"^uni-(.*)": "@/components/uni/uni-$1/uni-$1.vue"
+		}
 }

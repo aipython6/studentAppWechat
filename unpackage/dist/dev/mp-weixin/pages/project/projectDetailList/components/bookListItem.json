@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "u--image": "/uview/components/u--image/u--image",
+    "u-divider": "/uview/components/u-divider/u-divider"
+  },
+  "component": true
+}

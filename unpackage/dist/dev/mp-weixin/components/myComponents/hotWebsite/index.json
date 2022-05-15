@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "u--image": "/uview/components/u--image/u--image",
+    "u-link": "/uview/components/u-link/u-link"
+  },
+  "component": true
+}

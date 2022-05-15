@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "uv-input": "/uview/components/u-input/u-input"
+  }
+}

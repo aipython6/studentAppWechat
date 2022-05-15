@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "课程详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-search": "/uview/components/u-search/u-search",
+    "uni-section": "/components/uni/uni-section/uni-section",
+    "book-box": "/pages/project/projectDetailList/components/bookBox"
+  }
+}

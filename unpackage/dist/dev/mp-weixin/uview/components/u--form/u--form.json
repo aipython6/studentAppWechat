@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "uv-form": "/uview/components/u-form/u-form"
+  }
+}

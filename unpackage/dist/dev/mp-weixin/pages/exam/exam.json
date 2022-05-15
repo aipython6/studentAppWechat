@@ -1,5 +1,14 @@
 {
   "navigationBarTitleText": "考试导航",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "u-swiper": "/uview/components/u-swiper/u-swiper",
+    "u-notice-bar": "/uview/components/u-notice-bar/u-notice-bar",
+    "u-search": "/uview/components/u-search/u-search",
+    "uni-section": "/components/uni/uni-section/uni-section",
+    "u-gap": "/uview/components/u-gap/u-gap",
+    "uni-pagination": "/components/uni/uni-pagination/uni-pagination",
+    "hot-website": "/components/myComponents/hotWebsite/index",
+    "hot-region": "/components/myComponents/hotRegion/index"
+  }
 }

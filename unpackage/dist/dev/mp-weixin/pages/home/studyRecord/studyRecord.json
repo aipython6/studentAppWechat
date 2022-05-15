@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "学习记录",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-search": "/uview/components/u-search/u-search",
+    "uni-section": "/components/uni/uni-section/uni-section",
+    "project-item": "/pages/home/studyRecord/projectItem"
+  }
+}

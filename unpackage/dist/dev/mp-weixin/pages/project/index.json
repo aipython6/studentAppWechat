@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "课程列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-search": "/uview/components/u-search/u-search",
+    "uni-section": "/components/uni/uni-section/uni-section",
+    "project-list-item": "/pages/project/projectListItem/projectListItem",
+    "box": "/pages/project/hotProject/box"
+  }
+}

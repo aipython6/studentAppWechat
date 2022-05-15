@@ -1,16 +1,55 @@
 {
   "pages": [
+    "pages/center/center",
+    "pages/home/home",
     "pages/exam/exam",
     "pages/tool/tool",
-    "pages/home/home",
-    "pages/center/center"
+    "pages/exam/websiteList/index",
+    "pages/home/userinfo/userinfo",
+    "pages/home/studyRecord/studyRecord",
+    "pages/home/projectCollected/projectCollected",
+    "pages/project/index",
+    "pages/project/projectDetailList/index",
+    "pages/project/projectDetailList/bookList",
+    "pages/book/index"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "开心学",
+    "navigationBarTitleText": "畅学",
     "navigationBarBackgroundColor": "#845EC2",
     "backgroundColor": "#845EC2"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#090979",
+    "backgroundColor": "#FFF",
+    "list": [
+      {
+        "pagePath": "pages/exam/exam",
+        "text": "考试导航",
+        "iconPath": "static/images/icons/导航.png",
+        "selectedIconPath": "static/images/icons/导航fulled.png"
+      },
+      {
+        "pagePath": "pages/tool/tool",
+        "text": "必备工具",
+        "iconPath": "static/images/icons/工具.png",
+        "selectedIconPath": "static/images/icons/工具fulled.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "学习中心",
+        "iconPath": "static/images/icons/学习.png",
+        "selectedIconPath": "static/images/icons/学习fulled.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "个人中心",
+        "iconPath": "static/images/icons/个人中心.png",
+        "selectedIconPath": "static/images/icons/个人中心fulled.png"
+      }
+    ]
   },
   "usingComponents": {}
 }

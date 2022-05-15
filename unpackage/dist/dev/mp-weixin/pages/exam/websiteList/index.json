@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "考试网站",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-search": "/uview/components/u-search/u-search",
+    "u-collapse": "/uview/components/u-collapse/u-collapse",
+    "u-collapse-item": "/uview/components/u-collapse-item/u-collapse-item",
+    "u-avatar": "/uview/components/u-avatar/u-avatar",
+    "u-link": "/uview/components/u-link/u-link",
+    "u-loadmore": "/uview/components/u-loadmore/u-loadmore"
+  }
+}
