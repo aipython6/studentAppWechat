@@ -29,6 +29,8 @@
   margin: 0 10rpx 50rpx 10rpx;
 }
 .container .project .project-list .item.data-v-2fc1a426 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
 }
 

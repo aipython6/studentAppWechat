@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "u-swipe-action": "/uview/components/u-swipe-action/u-swipe-action",
+    "u-swipe-action-item": "/uview/components/u-swipe-action-item/u-swipe-action-item",
+    "u-row": "/uview/components/u-row/u-row",
+    "u-col": "/uview/components/u-col/u-col",
+    "u--image": "/uview/components/u--image/u--image"
+  },
+  "component": true
+}

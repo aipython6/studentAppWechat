@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": "课程收藏",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "u-search": "/uview/components/u-search/u-search",
+    "uni-section": "/components/uni/uni-section/uni-section",
+    "collected-item": "/pages/home/projectCollected/collectedItem"
+  }
 }

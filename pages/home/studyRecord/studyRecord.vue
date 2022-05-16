@@ -22,6 +22,7 @@
 			<view class="project-list">
 				<view v-for="(item,index) in projectList" :key="item.id">
 					<projectItem
+					:bid="item.id"
 					:pid="index+1"
 					:avatar="item.avatar"
 					:publshedName="item.publishedName"

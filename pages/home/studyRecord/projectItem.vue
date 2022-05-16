@@ -1,6 +1,6 @@
 <template>
 	<!-- 课程学习列表的组件 -->
-	<view class="container">
+	<view class="container" @tap="toBookDetail(bid, projectName)">
 		<u-swipe-action>
 				<u-swipe-action-item :options="options" :duration="1000">
 						<view class="swipe-action u-border-top u-border-bottom">
@@ -34,6 +34,9 @@
 	export default {
 		name: 'projectItem',
 		props: {
+			bid: {
+				type: Number
+			},
 			pid: {
 				type: Number,
 			},
@@ -74,6 +77,13 @@
 		data() {
 			return {
 				options: [{text: '删除',style: { backgroundColor: '#fd1d1d'} }]
+			}
+		},
+		methods: {
+			toBookDetail(bid, projectName) {
+				uni.navigateTo({
+					url: `../../book/index?bid=${bid}&bookName=${projectName}`
+				})
 			}
 		}
 	}
