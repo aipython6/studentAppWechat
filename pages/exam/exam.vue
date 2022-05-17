@@ -39,7 +39,14 @@
 					<u-gap height="7" bgColor="#F2F6FC" v-if="params.size % 5 !== 0"></u-gap>
 				</view>
 				<view class="website-pages">
-					<uni-pagination :total="websiteList.length" :current="params.page" :pageSize="params.size" title="标题文字" @change="change" />
+					<uni-pagination
+					:total="websiteList.length"
+					:current="params.page"
+					:pageSize="params.size"
+					title="标题文字"
+					prevText="上一页"
+					nextText="下一页"
+					@change="change" />
 				</view>
 			</view>
 			<!-- 热门地区 -->

@@ -17,15 +17,17 @@
 			<u-avatar size="55" :src="item[3].src"></u-avatar>
 			<u--text :text="item[3].value"></u--text>
 		</view>
-		<!-- <view>
+		<view>
 			<u-modal
 			:show="show"
+			title="提示"
 			:content='content'
 			:closeOnClickOverlay="true"
+			:showCancelButton="true"
 			@confirm="login"
 			@cancel="show = false"
 			/>
-		</view> -->
+		</view>
 	</view>
 </template>
 
@@ -46,7 +48,7 @@
 		data() {
 			return {
 				show: false,
-				content: '您还未登录,请先登录'
+				content: '您还未登录,请授权登录'
 			}
 		},
 				
@@ -59,7 +61,7 @@
 			// 跳转到课本收藏列表
 			toProjectCollected() {
 				if (!this.hasLogin) {
-					this.show = true
+					this.login()
 				} else {
 					uni.navigateTo({
 						url: '../../pages/home/projectCollected/projectCollected'
@@ -69,12 +71,22 @@
 			// 用户未登录时,则先进行登录
 			login() {
 				const that = this
-				uni.login({
+				let postForm = {}
+				uni.getUserProfile({
+					desc: '将会获取你的个人信息',
 					success: res => {
-						console.log(res);
-						this.show = false
-						uni.navigateTo({
-							url: '../../pages/home/projectCollected/projectCollected'
+						const { nickName, avatarUrl } = res.userInfo
+						postForm.nickName = nickName
+						postForm.avatarUrl = avatarUrl
+						uni.login({
+							success: res1 => {
+								const { code } = res1
+								postForm.code = code
+								login(postForm).then(result => {})
+								uni.navigateTo({
+									url: '../../pages/home/projectCollected/projectCollected'
+								})
+							}
 						})
 					}
 				})

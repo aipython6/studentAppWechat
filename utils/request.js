@@ -2,9 +2,8 @@ import { getToken } from '@/utils/auth'
 import store from '@/store/index'
 function request(obj) {
 	return new Promise((resolve, reject) => {
-		const baseURL = getApp().globalData.baseURL
+		const url = 'http://localhost:8090/' + obj.url
 		const method = obj.method || 'GET'
-		const url = baseURL + obj.url
 		const data = obj.data
 		const token = getToken()
 		const header = { 'authorization': token, 'openid': store.state.openID }

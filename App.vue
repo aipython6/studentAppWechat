@@ -2,7 +2,7 @@
 	export default {
 		// 全局变量
 		globalData() {
-			baseURL: 'http://localhost:8080/'
+			baseURL: 'http://localhost:8090/'
 		},
 		
 		onLaunch: function() {
