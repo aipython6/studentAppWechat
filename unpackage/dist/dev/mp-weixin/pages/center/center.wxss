@@ -33,4 +33,13 @@
   display: -webkit-flex;
   display: flex;
 }
+.container .study .study-list.data-v-2fc1a426 {
+  margin: 0 15rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
 

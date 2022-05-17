@@ -38,6 +38,7 @@
 		components: { collectedItem },
 		data() {
 			return {
+				show: false,
 				collectedList: [
 					{ id: 1, projectName: '高等数学', publishedName: '清华大学出版社', collectedTime: '2022-05-13', clickNum: 55, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
 					{ id: 2, projectName: '大学英语', publishedName: '人民出版社', collectedTime: '2022-05-01', clickNum: 15, studyStatus: '未学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },

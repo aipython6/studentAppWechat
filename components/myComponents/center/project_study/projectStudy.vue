@@ -17,10 +17,21 @@
 			<u-avatar size="55" :src="item[3].src"></u-avatar>
 			<u--text :text="item[3].value"></u--text>
 		</view>
+		<!-- <view>
+			<u-modal
+			:show="show"
+			:content='content'
+			:closeOnClickOverlay="true"
+			@confirm="login"
+			@cancel="show = false"
+			/>
+		</view> -->
 	</view>
 </template>
 
 <script>
+	import { mapState } from 'vuex'
+	import { login } from '@/api/auth/auth.js'
 	export default {
 		name: 'projectStudy',
 		props: {
@@ -31,20 +42,41 @@
 				}
 			}
 		},
+		computed: mapState(['token', 'hasLogin']),
 		data() {
 			return {
-				
+				show: false,
+				content: '您还未登录,请先登录'
 			}
 		},
+				
 		methods: {
 			toProjectList() {
 				uni.navigateTo({
 					url: '../../pages/project/index'
 				})
 			},
+			// 跳转到课本收藏列表
 			toProjectCollected() {
-				uni.navigateTo({
-					url: '../../pages/home/projectCollected/projectCollected'
+				if (!this.hasLogin) {
+					this.show = true
+				} else {
+					uni.navigateTo({
+						url: '../../pages/home/projectCollected/projectCollected'
+					})
+				}
+			},
+			// 用户未登录时,则先进行登录
+			login() {
+				const that = this
+				uni.login({
+					success: res => {
+						console.log(res);
+						this.show = false
+						uni.navigateTo({
+							url: '../../pages/home/projectCollected/projectCollected'
+						})
+					}
 				})
 			},
 			toStudyRecord() {

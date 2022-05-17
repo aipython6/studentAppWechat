@@ -19,17 +19,14 @@
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": true,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "minifyWXML": true,
     "disableUseStrict": false,
     "useStaticServer": true,
     "showES6CompileOption": false,
@@ -37,7 +34,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.1",
-  "appid": "wx78838e0d028ca760",
+  "appid": "touristappid",
   "projectname": "studentAppWechat",
   "condition": {},
   "editorSetting": {

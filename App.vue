@@ -1,5 +1,10 @@
 <script>
 	export default {
+		// 全局变量
+		globalData() {
+			baseURL: 'http://localhost:8080/'
+		},
+		
 		onLaunch: function() {
 			// console.log('App Launch')
 		},

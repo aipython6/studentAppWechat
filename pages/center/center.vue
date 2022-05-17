@@ -26,12 +26,20 @@
 		<view class="study">
 			<uni-section title="大家都在学" type="line" padding></uni-section>
 				<view class="study-list">
-					<view><u--text text="当前共有15523" size="18" type="primary"></u--text></view>
-					<view><u--text text="位同学在学习" size="18" type="primary"></u--text></view>
+					<view>
+						<view><u--text text="当前已有15523位" size="16" type="primary"></u--text></view>
+						<view><u--text text="同学学习了课程" size="16" type="primary"></u--text></view>
+					</view>
+					<view>
+						<view><u--text text="当前已有5523位" size="16" type="primary"></u--text></view>
+						<view><u--text text="同学在做题" size="16" type="primary"></u--text></view>
+					</view>
 				</view>
 		</view>
 		<uni-section title="今日战果" type="line" padding></uni-section>
-			<view class="result-list"></view>
+			<view class="result-list">
+				
+			</view>
 	</view>
 </template>
 
@@ -74,6 +82,13 @@
 				.item {
 					display: flex;
 				}
+			}
+		}
+		.study {
+			.study-list {
+				margin: 0 15rpx;
+				display: flex;
+				justify-content: space-between;
 			}
 		}
 	}
