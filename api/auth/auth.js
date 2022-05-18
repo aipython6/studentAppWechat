@@ -8,3 +8,11 @@ export function login(data) {
 		data
 	})
 }
+
+export function getInfo(data) {
+	return request({
+		url: 'auth/getinfo',
+		method: 'GET',
+		data
+	})
+}

@@ -1,4 +1,4 @@
-import { getToken } from '@/utils/auth'
+import { getToken, getOpenid } from '@/utils/auth'
 import store from '@/store/index'
 function request(obj) {
 	return new Promise((resolve, reject) => {
@@ -6,13 +6,16 @@ function request(obj) {
 		const method = obj.method || 'GET'
 		const data = obj.data
 		const token = getToken()
-		const header = { 'authorization': token, 'openid': store.state.openID }
+		const openid = getOpenid()
+		const header = { 'authorization': token, 'openid': openid }
+		// console.log(header);
 		uni.request({
 			url: url,
 			method: method,
 			data: data,
 			header: header,
 			success: (res)=> {
+				console.log(res);
 				if (res.data.code === 401 || res.data.code === 403) {
 					uni.reLaunch({
 						// 回到首页

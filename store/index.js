@@ -1,30 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import user from './user.js'
+import getters from './getters.js'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-	state: {
-		forcedLogin: false,
-		hasLogin: false,
-		username: '',
-		openID: '',
-		token: ''
+	modules: {
+		user
 	},
-	mutations: {
-		login(state, user) {
-			state.username = user.username || ''
-			state.hasLogin = true
-			state.openID = user.openID || ''
-			state.token = user.token || ''
-		},
-		logout(state) {
-			state.username = ''
-			state.hasLogin = false
-			state.openID = ''
-			state.token = ''
-		}
-	}
+	getters
 })
 
 export default store
-

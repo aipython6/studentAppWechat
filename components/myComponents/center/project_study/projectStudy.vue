@@ -68,12 +68,12 @@
 					})
 				}
 			},
-			// 用户未登录时,则先进行登录
+			// 用户未授权时,则先授权，而后才能查看课程信息
 			login() {
 				const that = this
 				let postForm = {}
 				uni.getUserProfile({
-					desc: '将会获取你的个人信息',
+					desc: '此操作将会获取你的个人信息',
 					success: res => {
 						const { nickName, avatarUrl } = res.userInfo
 						postForm.nickName = nickName
@@ -82,7 +82,10 @@
 							success: res1 => {
 								const { code } = res1
 								postForm.code = code
-								login(postForm).then(result => {})
+								this.$store.dispatch('login', postForm).then(result => {
+									// 登录成功后,记录获取用户信息
+									this.$store.dispatch('GetInfo', result.data.content.openid)
+								})
 								uni.navigateTo({
 									url: '../../pages/home/projectCollected/projectCollected'
 								})
