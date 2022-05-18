@@ -32,33 +32,21 @@
 .container .box.data-v-35d61173 {
   padding: 5px;
   margin: 0 15rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   border-radius: 5px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 .container .box .name-info.data-v-35d61173 {
   padding-left: 20rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-around;
   color: #808080;
   font-size: 25rpx;
 }
 .container .box .name-info .info.data-v-35d61173 {
   width: 400rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 

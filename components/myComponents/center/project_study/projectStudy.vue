@@ -32,7 +32,7 @@
 </template>
 
 <script>
-	import { mapState } from 'vuex'
+	import { mapGetters } from 'vuex'
 	import { login } from '@/api/auth/auth.js'
 	export default {
 		name: 'projectStudy',
@@ -44,7 +44,9 @@
 				}
 			}
 		},
-		computed: mapState(['token', 'hasLogin']),
+		computed: {
+			...mapGetters(['user', 'hasLogin'])
+		},
 		data() {
 			return {
 				show: false,
@@ -60,7 +62,7 @@
 			},
 			// 跳转到课本收藏列表
 			toProjectCollected() {
-				if (!this.hasLogin) {
+				if (!(this.hasLogin)) {
 					this.login()
 				} else {
 					uni.navigateTo({
@@ -83,8 +85,8 @@
 								const { code } = res1
 								postForm.code = code
 								this.$store.dispatch('login', postForm).then(result => {
-									// 登录成功后,记录获取用户信息
-									this.$store.dispatch('GetInfo', result.data.content.openid)
+									// 登录成功后,立即获取用户信息
+									this.$store.dispatch('GetInfo', result.openid).then(result1 => {})
 								})
 								uni.navigateTo({
 									url: '../../pages/home/projectCollected/projectCollected'

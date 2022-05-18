@@ -8,14 +8,12 @@ function request(obj) {
 		const token = getToken()
 		const openid = getOpenid()
 		const header = { 'authorization': token, 'openid': openid }
-		// console.log(header);
 		uni.request({
 			url: url,
 			method: method,
 			data: data,
 			header: header,
 			success: (res)=> {
-				console.log(res);
 				if (res.data.code === 401 || res.data.code === 403) {
 					uni.reLaunch({
 						// 回到首页

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { login, getInfo } from '@/api/auth/auth.js'
-import { setToken, setOpenid, setSid, setHasLogin, removeHasLogin, removeSid, removeToken, removeOpenid } from '@/utils/auth.js'
+import { getToken, getOpenid, getSid, getHasLogin, setToken, setOpenid, setSid, setHasLogin, removeHasLogin, removeSid, removeToken, removeOpenid } from '@/utils/auth.js'
 Vue.use(Vuex)
 
 const user = {
@@ -48,9 +48,10 @@ const user = {
 		GetInfo({ commit }, openid) {
 			return new Promise((resolve, reject) => {
 				getInfo({ openid: openid }).then(res => {
-					setUserInfo(res, commit)
-					setSid(res.user.sid)
-					resolve(res)
+					const { content } = res.data
+					setUserInfo(content, commit)
+					setSid(content.sid)
+					resolve(content)
 				})
 			})
 		}
@@ -66,7 +67,7 @@ export const logout = (commit) => {
 }
 
 export const setUserInfo = (res, commit) => {
-	commit('SET_USER', res.user)
+	commit('SET_USER', res)
 }
 
 export default user
