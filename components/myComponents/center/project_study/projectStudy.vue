@@ -17,17 +17,6 @@
 			<u-avatar size="55" :src="item[3].src"></u-avatar>
 			<u--text :text="item[3].value"></u--text>
 		</view>
-		<view>
-			<u-modal
-			:show="show"
-			title="提示"
-			:content='content'
-			:closeOnClickOverlay="true"
-			:showCancelButton="true"
-			@confirm="login"
-			@cancel="show = false"
-			/>
-		</view>
 	</view>
 </template>
 
@@ -62,16 +51,27 @@
 			},
 			// 跳转到课本收藏列表
 			toProjectCollected() {
+				const url = '../../pages/home/projectCollected/projectCollected'
 				if (!(this.hasLogin)) {
-					this.login()
+					this.login(url)
 				} else {
 					uni.navigateTo({
-						url: '../../pages/home/projectCollected/projectCollected'
+						url: url
+					})
+				}
+			},
+			toStudyRecord() {
+				const url = '../../pages/home/studyRecord/studyRecord'
+				if (!this.hasLogin) {
+					this.login(url)
+				} else {
+					uni.navigateTo({
+						url: url
 					})
 				}
 			},
 			// 用户未授权时,则先授权，而后才能查看课程信息
-			login() {
+			login(url) {
 				const that = this
 				let postForm = {}
 				uni.getUserProfile({
@@ -89,16 +89,11 @@
 									this.$store.dispatch('GetInfo', result.openid).then(result1 => {})
 								})
 								uni.navigateTo({
-									url: '../../pages/home/projectCollected/projectCollected'
+									url: url
 								})
 							}
 						})
 					}
-				})
-			},
-			toStudyRecord() {
-				uni.navigateTo({
-					url: '../../pages/home/studyRecord/studyRecord'
 				})
 			}
 		}

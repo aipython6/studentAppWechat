@@ -30,8 +30,12 @@
 }
 .container .hotProject.data-v-564ed0b3 {
   height: 70px;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 

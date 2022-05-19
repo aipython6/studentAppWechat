@@ -11,7 +11,7 @@
 			>
 				<u-form-item
 						label="姓名"
-						prop="model1.infoForm.username"
+						prop="infoForm.username"
 						borderBottom
 						ref="username"
 				>
@@ -19,7 +19,7 @@
 				</u-form-item>
 				<u-form-item
 						label="性别"
-						prop="model1.infoForm.gender"
+						prop="infoForm.gender"
 						borderBottom
 						@click="showSex = true; hideKeyboard()"
 						ref="gender"
@@ -38,7 +38,7 @@
 				</u-form-item>
 				<u-form-item
 						label="邮箱"
-						prop="model1.infoForm.email"
+						prop="infoForm.email"
 						borderBottom
 						ref="email"
 				>
@@ -46,7 +46,7 @@
 				</u-form-item>
 				<u-form-item
 						label="年龄"
-						prop="model1.infoForm.age"
+						prop="infoForm.age"
 						borderBottom
 						ref="age"
 				>
@@ -54,7 +54,7 @@
 				</u-form-item>
 				<u-form-item
 						label="生日"
-						prop="model1.infoForm.birthday"
+						prop="infoForm.birthday"
 						borderBottom
 						@click="showBirthday = true; hideKeyboard()"
 						ref="birthday"
@@ -73,7 +73,7 @@
 				</u-form-item>
 				<u-form-item
 						label="学校"
-						prop="model1.infoForm.school"
+						prop="infoForm.school"
 						borderBottom
 						ref="school"
 				>
@@ -81,7 +81,7 @@
 				</u-form-item>
 				<u-form-item
 						label="专业"
-						prop="model1.infoForm.professional"
+						prop="infoForm.professional"
 						borderBottom
 						ref="professional"
 				>
@@ -110,13 +110,29 @@
 					@confirm="birthdaySelect"
 					mode="date" />
 		</view>
+		<view>
+			<u-modal
+			:show="show"
+			title="提示"
+			:content='content'
+			:closeOnClickOverlay="true"
+			:showCancelButton="true"
+			@confirm="confirm"
+			@cancel="show = false"
+			/>
+		</view>
 	</view>
 </template>
 
 <script>
+	import { editUserinfo, getInfo } from '@/api/auth/auth.js'
+	import { getOpenid } from '@/utils/auth.js'
+	import { mapGetters } from 'vuex'
 	export default {
 		data() {
 			return {
+				show: false,
+				content: '是否提交?',
 				showSex: false,
 				actions: [{ name: '男'},{name: '女'}],
 				showBirthday: false,
@@ -128,29 +144,38 @@
 						birthday: '',
 						school: '',
 						professional: '',
-						email: '',
-						avatar: ''
+						email: ''
 					}
 				},
 				rules: {
 					'infoForm.username': { type: 'string', required: true, message: '请填写姓名', trigger: ['blur', 'change'] },
 					'infoForm.gender': { type: 'string', required: true, message: '请选择性别', trigger: ['blur', 'change'] },
 					'infoForm.age': { type: 'string', required: true, message: '请输入年龄', trigger: ['blur', 'change'] },
-					'infoForm.email': { type: 'email', required: true, message: '请输入邮箱', trigger: ['blur', 'change'] },
+					'infoForm.email': { type: 'email', required: true, message: '请输入正确的邮箱格式', trigger: ['blur', 'change'] },
 					'infoForm.birthday': { type: 'string', required: true, message: '请选择生日', trigger: ['change'] },
-					'infoForm.school': { type: 'string', required: true, message: '请选择生日', trigger: ['blur', 'change'] },
-					'infoForm.professional': { type: 'string', required: true, message: '请选择生日', trigger: ['blur', 'change'] },
+					'infoForm.school': { type: 'string', required: true, message: '请输入学校名称', trigger: ['blur', 'change'] },
+					'infoForm.professional': { type: 'string', required: true, message: '请输入专业名称', trigger: ['blur', 'change'] },
 				},
 			}
+		},
+		computed: {
+			...mapGetters[('user')]
+		},
+		onLoad() {
+			this.model1.infoForm.username = this.$store.getters.user.username
+			this.model1.infoForm.age = this.$store.getters.user.age
+			this.model1.infoForm.gender = this.$store.getters.user.gender
+			this.model1.infoForm.school = this.$store.getters.user.school
+			this.model1.infoForm.professional = this.$store.getters.user.professional
+			this.model1.infoForm.email = this.$store.getters.user.email
+			this.model1.infoForm.birthday = this.$store.getters.user.birthday
 		},
 		methods: {
 			sexSelect(e) {
 						this.model1.infoForm.gender = e.name
 						this.$refs.form1.validateField('infoForm.gender')
 					},
-				hideKeyboard(e) {
-					// console.log(e);
-				},
+				hideKeyboard(e) {},
 				birthdaySelect(e) {
 					const timeFormat = uni.$u.timeFormat
 					this.model1.infoForm.birthday = timeFormat(e.value, 'yyyy-mm-dd')
@@ -169,15 +194,26 @@
 					}
 				},
 				submit() {
+					this.$refs.form1.validate().then(res => {
+						uni.$u.toast('校验通过')
+						this.show = true
+					}).catch(err => {
+						uni.$u.toast('校验失败,请填写完整信息')
+					})
+				},
+				confirm() {
 					const data = this.model1.infoForm
-					const that = this
-					uni.request({
-						url: 'http://localhost:3000/student/infoAdd',
-						method: 'POST',
-						data: data
+					const post = Object.assign({}, data, { openid: getOpenid() })
+					editUserinfo(post).then(res => {
+						this.show = false
+						this.$store.dispatch('GetInfo', getOpenid()).then(res1 => {})
+						setTimeout(() => {
+							uni.navigateBack({
+								delta: 1
+							})
+						}, 2000)
 					})
 				}
-				
 		}
 	}
 </script>

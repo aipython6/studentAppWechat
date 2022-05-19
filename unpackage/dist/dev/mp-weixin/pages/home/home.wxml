@@ -1,1 +1,1 @@
-<view class="container"><userinfo vue-id="1da55560-1" userinfo="{{userinfo}}" bind:__l="__l"></userinfo><menu-list vue-id="1da55560-2" bind:__l="__l"></menu-list></view>
+<view class="container"><userinfo vue-id="1da55560-1" userinfo="{{user}}" bind:__l="__l"></userinfo><menu-list vue-id="1da55560-2" bind:__l="__l"></menu-list></view>
