@@ -195,7 +195,7 @@
 				},
 				submit() {
 					this.$refs.form1.validate().then(res => {
-						uni.$u.toast('校验通过')
+						// uni.$u.toast('校验通过')
 						this.show = true
 					}).catch(err => {
 						uni.$u.toast('校验失败,请填写完整信息')

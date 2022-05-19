@@ -18,8 +18,8 @@
 					<text>邮箱: {{ userinfo.email }}</text>
 				</view>
 				<view v-else @tap='goUserinfo(openid)'>
-					<!-- <u-badge :isDot="true" type="success">点击完善个人信息</u-badge> -->
 					<text>点击完善个人信息</text>
+					<u-badge :isDot="true" :absolute="true" :offset="[110,165]" />
 				</view>
 			</view>
 			<view v-else>
