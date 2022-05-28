@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "uni-section": "/components/uni/uni-section/uni-section",
+    "u-divider": "/uview/components/u-divider/u-divider"
+  },
+  "component": true
+}

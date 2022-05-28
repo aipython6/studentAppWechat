@@ -1,5 +1,12 @@
 {
   "navigationBarTitleText": "课本学习",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-section": "/components/uni/uni-section/uni-section",
+    "u-gap": "/uview/components/u-gap/u-gap",
+    "u-tabs": "/uview/components/u-tabs/u-tabs",
+    "book-info": "/pages/book/components/bookInfo",
+    "chapter-content": "/pages/book/components/chapterContent",
+    "exercise-content": "/pages/book/components/exerciseContent"
+  }
 }

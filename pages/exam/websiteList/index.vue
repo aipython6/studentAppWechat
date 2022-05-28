@@ -2,13 +2,13 @@
 	<!-- 网站列表页面 -->
 	<view class="container">
 		<view class="header">
-			<u-search shape="square" :clearabled="true" placeholder="根据网站名称搜索" v-model="keyword" :showAction="false"></u-search>
+			<u-search shape="square" :clearabled="true" placeholder="根据网站名称搜索" v-model="keyword" :showAction="false" @search="search" />
 		</view>
 		<view class="center">
 			<u-collapse accordion>
 					<u-collapse-item v-for="item,index in websiteList" :key="item.id" :title="item.name" :border="false">
 							<view class="item">
-								<u-avatar icon="star-fill" fontSize="22"></u-avatar>
+								<u-avatar :src="item.img" fontSize="22"></u-avatar>
 								<u-link class="link" :href="item.url" :text="item.name" mpTips="链接已复制"></u-link>
 								<text class="text">热度: {{ item.clickNum }}</text>
 							</view>
@@ -19,12 +19,13 @@
 			:status="status" 
 			:loading-text="loadingText" 
 			:loadmore-text="loadmoreText" 
-			:nomore-text="nomoreText" 
+			:nomore-text="nomoreText"
 		/>
 	</view>
 </template>
 
 <script>
+	import { all_website, all_website_byName } from '@/api/website/website.js'
 	export default {
 		data() {
 			return {
@@ -38,7 +39,7 @@
 			}
 		},
 		onLoad(obj) {
-			const name = obj.name
+			const { name, id } = obj
 			this.getWebsiteList(name)
 		},
 		// onReachBottom() {
@@ -56,26 +57,17 @@
 				
 			},
 			getWebsiteList(name) {
-				const items = [
-					{ id: 1, name: '全国计算机等级考试',	region :'全国', url: 'http://ncre.neea.edu.cn/', type: '信息技术', clickNum: 210, img: 'http://localhost:3000/images/hotwebsites/播放视频.png' },
-					{ id: 2, name: '中国教育考试网',	region :'全国', url: 'https://www.neea.edu.cn/', type: '教育考试', clickNum: 140, img: 'http://localhost:3000/images/hotwebsites/模块搭建.png' },
-					{ id: 3, name: '北京市教育考试网',	region :'北京', url: 'http://www.bjeea.cn/', type: '教育考试', clickNum: 130, img: 'http://localhost:3000/images/hotwebsites/日夜作息.png' },
-					{ id: 4, name: '天津市教育考试网',	region :'天津', url: 'http://www.zhaokao.net/', type: '教育考试', clickNum: 120, img: 'http://localhost:3000/images/hotwebsites/数据监控.png' },
-					{ id: 5, name: '山东教育考试网',	region :'山东', url: 'http://ncre.neea.edu.cn/', type: '信息技术', clickNum: 100, img: 'http://localhost:3000/images/hotwebsites/播放视频.png' },
-					{ id: 6, name: '河北教育考试网',	region :'河北', url: 'https://www.neea.edu.cn/', type: '教育考试', clickNum: 80, img: 'http://localhost:3000/images/hotwebsites/模块搭建.png' },
-					{ id: 7, name: '江苏教育考试网',	region :'江苏', url: 'http://www.bjeea.cn/', type: '教育考试', clickNum: 60, img: 'http://localhost:3000/images/hotwebsites/日夜作息.png' },
-					{ id: 8, name: '湖南教育考试网',	region :'湖南', url: 'http://www.zhaokao.net/', type: '教育考试', clickNum: 50, img: 'http://localhost:3000/images/hotwebsites/数据监控.png' }					
-				]
-				this.websiteList = items.filter((item, index) => item.region === name)
-				// const that = this
-				// uni.request({
-				// 	url: 'http://localhost:3000/website/getWebsiteList',
-				// 	method: 'GET',
-				// 	data: { id: id },
-				// 	success: (res) => {
-				// 		that.websiteList = res.data.list
-				// 	}
-				// })
+				all_website().then(res => {
+					const { content } = res.data
+					this.websiteList = content.filter((item, index) => item.region === name)
+				})
+			},
+			search(value) {
+				const temp = { name: value }
+				all_website_byName(temp).then(res => {
+					const { content } = res.data
+					this.websiteList = content
+				})
 			}
 		}
 	}

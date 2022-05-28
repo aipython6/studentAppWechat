@@ -30,11 +30,7 @@
 }
 .container .btns.data-v-a0531f50 {
   margin: 10rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 

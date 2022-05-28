@@ -2,7 +2,7 @@
 	<!-- 显示书本的组件 -->
 	<view class="main">
 		<u-cell-group>
-			<u-cell v-for="item, index in projectList" size="large" :key="item.id" :title="item.projectName + '(共'+ item.num + '本)'" isLink @click="toBookListDetail(item.projectName)" />
+			<u-cell v-for="item, index in projectList" size="large" :key="item.btid" :title="item.name + '(共'+ item.num + '本)'" isLink @click="toBookListDetail(item.name, item.btid)" />
 		</u-cell-group>
 	</view>
 </template>
@@ -19,9 +19,9 @@
 			}
 		},
 		methods: {
-			toBookListDetail(projectName) {
+			toBookListDetail(name, btid) {
 				uni.navigateTo({
-					url: `./index?projectName=${projectName}`
+					url: `./index?name=${name}&btid=${btid}`
 				})
 			}
 		}

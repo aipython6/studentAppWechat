@@ -58,7 +58,7 @@
 			methods: {
 				click (item) {
 					uni.navigateTo({
-						url: `../../pages/exam/websiteList/index?name=${item.name}`
+						url: `../../pages/exam/websiteList/index?name=${item.name}&pid=${item.id}`
 					});
 				}
 			}

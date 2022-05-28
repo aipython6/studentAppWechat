@@ -11,7 +11,8 @@
     "pages/project/index",
     "pages/project/projectDetailList/index",
     "pages/project/projectDetailList/bookList",
-    "pages/book/index"
+    "pages/book/index",
+    "pages/book/studyPage"
   ],
   "subPackages": [],
   "window": {

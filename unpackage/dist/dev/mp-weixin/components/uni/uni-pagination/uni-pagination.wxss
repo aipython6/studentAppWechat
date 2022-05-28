@@ -26,21 +26,12 @@
 /* 文章场景相关 */
 /* nview的配置 */
 .uni-pagination.data-v-b0cd6af6 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   position: relative;
   overflow: hidden;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .uni-pagination__total.data-v-b0cd6af6 {
   font-size: 14px;
@@ -48,8 +39,6 @@
   margin-right: 15px;
 }
 .uni-pagination__btn.data-v-b0cd6af6 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   cursor: pointer;
   padding: 0 8px;
@@ -57,56 +46,29 @@
   font-size: 12px;
   position: relative;
   background-color: #F0F0F0;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   border-radius: 5px;
 }
 .uni-pagination__child-btn.data-v-b0cd6af6 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   font-size: 12px;
   position: relative;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: #666;
   font-size: 12px;
 }
 .uni-pagination__num.data-v-b0cd6af6 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   height: 30px;
   line-height: 30px;
   font-size: 12px;
@@ -122,13 +84,8 @@
   border-radius: 4px;
 }
 .uni-pagination__num-current.data-v-b0cd6af6 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 .uni-pagination__num-current-text.data-v-b0cd6af6 {
   font-size: 15px;
@@ -168,9 +125,7 @@
     display: block;
 }
 .uni-pagination__num-flex-none.data-v-b0cd6af6 {
-    -webkit-box-flex: 0;
-    -webkit-flex: none;
-            flex: none;
+    flex: none;
 }
 }
 

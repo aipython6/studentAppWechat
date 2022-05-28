@@ -3,8 +3,8 @@
 	<view class="container">
 		<uni-section :title="parentType" type="line" padding></uni-section>
 		<view class="item">
-			<view v-for="(item,index) in childrenList" :key="item.id">
-					<boxItem :text="item.childrenName" :bgColor="item.bgColor" />
+			<view v-for="(item,index) in childrenList" :key="item.sid">
+					<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" />
 			</view>
 		</view>
 	</view>

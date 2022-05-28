@@ -10,35 +10,42 @@
 		:animation="true"
 		v-model="bookName" 
 		@search="search" />
-		<uni-section :title="projectName" type="line" padding></uni-section>
+		<uni-section :title="projectName" type="line" padding />
 		<view v-for="item,index in bookList" :key="item.id">
 			<bookListItem :bookItem="item" />
-			<u-divider></u-divider>
+			<u-divider />
 		</view>
 	</view>
 </template>
 
 <script>
 	import bookListItem from './components/bookListItem.vue'
+	import { getBookList } from '@/api/project/project.js'
 	export default {
 		components: { bookListItem },
 		data() {
 			return {
 				projectName: '',
 				bookName: '',
-				bookList: [
-					{ id: 1, src: 'https://cdn.uviewui.com/uview/album/1.jpg', bookName: '常微分方程', author: '同济大学编', publishedName: '清华大学出版社', clickNum: 1520 }, 
-					{ id: 2, src: 'https://cdn.uviewui.com/uview/album/1.jpg', bookName: '常微分方程', author: '同济大学编', publishedName: '清华大学出版社', clickNum: 1520 },
-					{ id: 3, src: 'https://cdn.uviewui.com/uview/album/1.jpg', bookName: '常微分方程', author: '同济大学编', publishedName: '清华大学出版社', clickNum: 1520 },
-					]
+				bookList: []
 			}
 		},
 		onLoad(obj) {
-			this.projectName = obj.projectName
+			uni.setNavigationBarTitle({
+				title: obj.name
+			})
+			this.projectName = obj.name
+			this.getBookList({ btid: obj.btid })
 		},
 		methods: {
-			search() {
-				
+			search(value) {
+				this.bookList = this.bookList.filter((item, index) => item.name === value)
+			},
+			getBookList(data) {
+				getBookList(data).then(res => {
+					const { content } = res.data
+					this.bookList = content
+				})
 			}
 		}
 	}
