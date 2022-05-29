@@ -1,27 +1,27 @@
 <template>
-	<view class="container" @tap="toBookDetail(bid, projectName)">
+	<view class="container" >
 		<u-swipe-action>
-				<u-swipe-action-item :options="options" :duration="1000">
+				<u-swipe-action-item :options="options" :duration="1000" @click="cancel(bookItem.bid)">
 						<view class="swipe-action u-border-top u-border-bottom">
-								<view class="swipe-action__content">
+								<view class="swipe-action__content" @tap="toBookDetail(bookItem.bid, bookItem.name)">
 									<u-row justify="space-between" gutter="10">
 										<u-col span="1"><text style="font-size: 16px;">{{ pid }}.</text></u-col>
 										<u-col span="3">
-											<u--image :src="avatar" radius="10" :fade="true" duration="450" height="80" width="80" />
+											<u--image :src="bookItem.coverImg" radius="10" :fade="true" duration="450" height="80" width="80" />
 										</u-col>
 										<u-col span="8">
 											<view class="line1">
-												<text class="swipe-action__content__text">课程名称: {{ projectName }}</text>
-												<text class="swipe-action__content__text">出版社: {{ publshedName }}</text>
+												<text class="swipe-action__content__text">课程名称: {{ bookItem.name }}</text>
+												<text class="swipe-action__content__text">出版社: {{ bookItem.publishedName }}</text>
 											</view>
 											<view class="line2">
-												<text class="swipe-action__content__text">收藏时间: {{ collectedTime }}</text>
+												<text class="swipe-action__content__text">收藏时间: {{ bookItem.create_time }}</text>
 											</view>
 											<view class="line3">
-												<text class="swipe-action__content__text">浏览次数: {{ clickNum }}</text>
+												<text class="swipe-action__content__text">浏览次数: {{ bookItem.clickNum }}</text>
 											</view>
 											<view class="line4">
-												<text class="swipe-action__content__text">状态: {{ studyStatus }}</text>
+												<text class="swipe-action__content__text">状态: {{ bookItem.status }}</text>
 											</view>
 										</u-col>
 									</u-row>
@@ -36,50 +36,13 @@
 	export default {
 		name: 'colledtedItem',
 		props: {
-			bid: {
-				type: Number,
-			},
 			pid: {
 				type: Number,
 			},
-			avatar: {
-				type: String,
+			bookItem: {
+				type: Object,
 				default: () => {
-					return ''
-				}
-			},
-			projectName: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			/// 出版社
-			publshedName: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			// 收藏时间
-			collectedTime: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			// 课程浏览次数
-			clickNum: {
-				type: String,
-				default: () => {
-					return 0
-				}
-			},
-			// 状态：已学习/未学习
-			studyStatus: {
-				type: String,
-				default: () => {
-					return ''
+					return {}
 				}
 			}
 		},
@@ -89,9 +52,12 @@
 			}
 		},
 		methods: {
+			cancel(bid) {
+				this.$emit('cancel', { bid: bid })
+			},
 			toBookDetail(bid, bookName) {
 				uni.navigateTo({
-					url: `../../book/index?bid = ${bid}&bookName=${bookName}`
+					url: `../../book/index?bid=${bid}&name=${bookName}`
 				})
 			}
 		}

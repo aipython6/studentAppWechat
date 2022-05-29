@@ -143,22 +143,58 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _project = __webpack_require__(/*! @/api/project/project.js */ 819); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { chapterContentList: [], chapter: '' };}, onLoad: function onLoad(obj) {uni.setNavigationBarTitle({ title: obj.name });this.getChapterConentList({ bid: obj.bid, type: 0 });
+
+
+
+
+var _project = __webpack_require__(/*! @/api/project/project.js */ 819);
+var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 862);
+var _vuex = __webpack_require__(/*! vuex */ 13);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+var enter_time = '';
+var out_time = '';
+var stay_time = '';var _default =
+{
+  data: function data() {
+    return {
+      chapterContentList: [],
+      chapter: '' };
+
+  },
+  computed: _objectSpread({},
+
+  _vuex.mapGetters[('start_time', 'end_time')]),
+
+  onShow: function onShow() {
+    enter_time = new Date();
+    console.log(enter_time);
+  },
+  onHide: function onHide() {
+    out_time = new Date();
+    stay_time = out_time.getTime() - enter_time.getTime();
+    console.log(stay_time);
+  },
+  onUnload: function onUnload() {
+    out_time = new Date();
+    stay_time = out_time.getTime() - enter_time.getTime();
+    console.log(stay_time);
+  },
+
+  onLoad: function onLoad(obj) {
+    uni.setNavigationBarTitle({
+      title: obj.name });
+
+    this.getChapterConentList({ bid: obj.bid, type: 0 });
     this.chapter = obj.name;
+    // this.studyProjectRecord({ bid: obj.bid })
   },
   methods: {
+
+    // 只要用户进入到这个界面,则将添加一条记录到课程学习关系表
+    studyProjectRecord: function studyProjectRecord(data) {
+      (0, _edit_project.studyProjectRecord)(data).then(function (res) {});
+    },
+
     getChapterConentList: function getChapterConentList(data) {var _this = this;
       (0, _project.getChapterConentList)(data).then(function (res) {var
         content = res.data.content;

@@ -187,50 +187,13 @@ var _default2 =
 {
   name: 'colledtedItem',
   props: {
-    bid: {
-      type: Number },
-
     pid: {
       type: Number },
 
-    avatar: {
-      type: String,
+    bookItem: {
+      type: Object,
       default: function _default() {
-        return '';
-      } },
-
-    projectName: {
-      type: String,
-      default: function _default() {
-        return '';
-      } },
-
-    /// 出版社
-    publshedName: {
-      type: String,
-      default: function _default() {
-        return '';
-      } },
-
-    // 收藏时间
-    collectedTime: {
-      type: String,
-      default: function _default() {
-        return '';
-      } },
-
-    // 课程浏览次数
-    clickNum: {
-      type: String,
-      default: function _default() {
-        return 0;
-      } },
-
-    // 状态：已学习/未学习
-    studyStatus: {
-      type: String,
-      default: function _default() {
-        return '';
+        return {};
       } } },
 
 
@@ -240,9 +203,12 @@ var _default2 =
 
   },
   methods: {
+    cancel: function cancel(bid) {
+      this.$emit('cancel', { bid: bid });
+    },
     toBookDetail: function toBookDetail(bid, bookName) {
       uni.navigateTo({
-        url: "../../book/index?bid = ".concat(bid, "&bookName=").concat(bookName) });
+        url: "../../book/index?bid=".concat(bid, "&name=").concat(bookName) });
 
     } } };exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

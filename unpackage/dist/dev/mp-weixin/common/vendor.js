@@ -10037,7 +10037,10 @@ var user = {
     forcedLogin: false,
     hasLogin: false,
     user: {},
-    sessionKey: '' },
+    sessionKey: '',
+    // 记录两个时间（1.进入学习页面的时间;2.退出学习页面的时间）
+    start_time: '',
+    end_time: '' },
 
 
   mutations: {
@@ -10267,7 +10270,9 @@ function removeHasLogin() {
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var getters = {
   user: function user(state) {return state.user.user;},
   hasLogin: function hasLogin(state) {return state.user.hasLogin;},
-  sessionKey: function sessionKey(state) {return state.user.sessionKey;} };var _default =
+  sessionKey: function sessionKey(state) {return state.user.sessionKey;},
+  start_tiem: function start_tiem(state) {return state.user.start_tiem;},
+  end_tiem: function end_tiem(state) {return state.user.end_tiem;} };var _default =
 
 getters;exports.default = _default;
 
@@ -27429,7 +27434,7 @@ function getChapterConentList(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getCollectOneBook = getCollectOneBook;exports.collectBook = collectBook;exports.getCollectedBooks = getCollectedBooks;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.getCollectOneBook = getCollectOneBook;exports.collectBook = collectBook;exports.getCollectedBooks = getCollectedBooks;exports.studyProjectRecord = studyProjectRecord;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 该文件下的访问是对课程收藏和课程学习的数据库修改方法
 
 // 1
@@ -27455,6 +27460,15 @@ function getCollectedBooks() {
   return (0, _request.default)({
     url: 'api/student/getCollectedBooks',
     method: 'GET' });
+
+}
+
+// 用户进入到学习页面,添加一条记录到课程学习关系表
+function studyProjectRecord(data) {
+  return (0, _request.default)({
+    url: 'api/student/studyProjectRecord',
+    method: 'GET',
+    data: data });
 
 }
 

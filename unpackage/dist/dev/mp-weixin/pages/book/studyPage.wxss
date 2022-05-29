@@ -25,11 +25,20 @@
 /* 透明度 */
 /* 文章场景相关 */
 /* nview的配置 */
+.container.data-v-b8d6dfea {
+  font-weight: bold;
+}
 .container .chapter.data-v-b8d6dfea {
   padding: 25rpx;
-  height: 30rpx;
-  font-size: 18px;
+  height: 40rpx;
+  font-size: 15px;
   color: #2b0c7c;
   background-color: #ededed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .chapter .time.data-v-b8d6dfea {
+  color: #f15791;
 }
 

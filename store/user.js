@@ -9,7 +9,10 @@ const user = {
 		forcedLogin: false,
 		hasLogin: false,
 		user: {},
-		sessionKey: ''
+		sessionKey: '',
+		// 记录两个时间（1.进入学习页面的时间;2.退出学习页面的时间）
+		start_time: '',
+		end_time: ''
 	},
 	
 	mutations: {

@@ -189,9 +189,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
-
-
 var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 862);var collectedItem = function collectedItem() {__webpack_require__.e(/*! require.ensure | pages/home/projectCollected/collectedItem */ "pages/home/projectCollected/collectedItem").then((function () {return resolve(__webpack_require__(/*! ./collectedItem.vue */ 456));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: { collectedItem: collectedItem },
@@ -209,6 +206,11 @@ var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 862
       (0, _edit_project.getCollectedBooks)().then(function (res) {var
         content = res.data.content;
         _this.collectedList = content;
+      });
+    },
+    cancel: function cancel(_ref) {var _this2 = this;var bid = _ref.bid;
+      (0, _edit_project.collectBook)({ bid: bid, isCollect: true }).then(function (res) {
+        _this2.getCollectedBooks();
       });
     } } };exports.default = _default;
 

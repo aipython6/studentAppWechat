@@ -26,3 +26,12 @@ export function getCollectedBooks() {
 		method: 'GET',
 	})
 }
+
+// 用户进入到学习页面,添加一条记录到课程学习关系表
+export function studyProjectRecord(data) {
+	return request({
+		url: 'api/student/studyProjectRecord',
+		method: 'GET',
+		data: data
+	})
+}
