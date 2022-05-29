@@ -11,6 +11,11 @@
 				<view>点击量: {{bookItem.clickNum}}</view>
 			</view>
 		</view>
+		<view class="icon">
+			<u-icon :name="isCollect === false ? 'star' : 'star-fill'" size="22" @click="handle(bookItem.bid, isCollect)" />
+			<text v-if="!isCollect">收藏</text>
+			<text v-else>已收藏</text>
+		</view>
 	</view>
 </template>
 
@@ -23,12 +28,23 @@
 				default: () => {
 					return {}
 				}
+			},
+			isCollect: {
+				type: Boolean,
+				default: () => {
+					return false
+				}
 			}
 		},
 		data() {
 			return {
-				
 			}
+		},
+		methods: {
+			handle(bid, isCollect) {
+				const temp = { bid: bid, isCollect: isCollect }
+				this.$emit('collect', temp)
+			},
 		}
 	}
 </script>
@@ -41,6 +57,10 @@
 			.info {
 				margin-left: 25rpx;
 			}
+		}
+		.icon {
+			display: flex;
+			margin-top: 15rpx;
 		}
 	}
 </style>

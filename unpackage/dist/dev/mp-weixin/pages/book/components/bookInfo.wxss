@@ -32,4 +32,8 @@
 .container .main .info.data-v-1603fc63 {
   margin-left: 25rpx;
 }
+.container .icon.data-v-1603fc63 {
+  display: flex;
+  margin-top: 15rpx;
+}
 

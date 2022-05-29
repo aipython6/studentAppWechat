@@ -1,5 +1,5 @@
 import request from '@/utils/request.js'
-
+// 该文件下的所有访问都是查询
 export function getTopAndSecondProjec() {
 	return request({
 		url: 'api/study/getTopAndSecondProjec',

@@ -27246,7 +27246,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.getTopAndSecondProjec = getTopAndSecondProjec;exports.getSecondProjectByName = getSecondProjectByName;exports.getBookTypeList = getBookTypeList;exports.getBookList = getBookList;exports.getBookInfoBybid = getBookInfoBybid;exports.getBookChapterList = getBookChapterList;exports.getChapterConentList = getChapterConentList;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
+// 该文件下的所有访问都是查询
 function getTopAndSecondProjec() {
   return (0, _request.default)({
     url: 'api/study/getTopAndSecondProjec',
@@ -27383,6 +27383,80 @@ function getChapterConentList(data) {
       type: String,
       default: uni.$u.props.tabs.keyName } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 826 */,
+/* 827 */,
+/* 828 */,
+/* 829 */,
+/* 830 */,
+/* 831 */,
+/* 832 */,
+/* 833 */,
+/* 834 */,
+/* 835 */,
+/* 836 */,
+/* 837 */,
+/* 838 */,
+/* 839 */,
+/* 840 */,
+/* 841 */,
+/* 842 */,
+/* 843 */,
+/* 844 */,
+/* 845 */,
+/* 846 */,
+/* 847 */,
+/* 848 */,
+/* 849 */,
+/* 850 */,
+/* 851 */,
+/* 852 */,
+/* 853 */,
+/* 854 */,
+/* 855 */,
+/* 856 */,
+/* 857 */,
+/* 858 */,
+/* 859 */,
+/* 860 */,
+/* 861 */,
+/* 862 */
+/*!******************************************************************!*\
+  !*** E:/studentApp/studentAppWechat/api/project/edit_project.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.getCollectOneBook = getCollectOneBook;exports.collectBook = collectBook;exports.getCollectedBooks = getCollectedBooks;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+// 该文件下的访问是对课程收藏和课程学习的数据库修改方法
+
+// 1
+function getCollectOneBook(data) {
+  return (0, _request.default)({
+    url: 'api/student/getCollectOneBook',
+    method: 'GET',
+    data: data });
+
+}
+
+//2.收藏和取消收藏课程
+function collectBook(data) {
+  return (0, _request.default)({
+    url: 'api/student/collectBook',
+    method: 'POST',
+    data: data });
+
+}
+
+// 3.获取openid下已收藏的课本列表
+function getCollectedBooks() {
+  return (0, _request.default)({
+    url: 'api/student/getCollectedBooks',
+    method: 'GET' });
+
+}
 
 /***/ })
 ]]);

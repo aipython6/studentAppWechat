@@ -174,33 +174,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _project = __webpack_require__(/*! @/api/project/project.js */ 819); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var bookInfo = function bookInfo() {__webpack_require__.e(/*! require.ensure | pages/book/components/bookInfo */ "pages/book/components/bookInfo").then((function () {return resolve(__webpack_require__(/*! ./components/bookInfo.vue */ 829));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var chapterContent = function chapterContent() {__webpack_require__.e(/*! require.ensure | pages/book/components/chapterContent */ "pages/book/components/chapterContent").then((function () {return resolve(__webpack_require__(/*! ./components/chapterContent.vue */ 836));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var exerciseContent = function exerciseContent() {__webpack_require__.e(/*! require.ensure | pages/book/components/exerciseContent */ "pages/book/components/exerciseContent").then((function () {return resolve(__webpack_require__(/*! ./components/exerciseContent.vue */ 841));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { bookInfo: bookInfo, chapterContent: chapterContent, exerciseContent: exerciseContent }, data: function data() {return { current: 0, bookObj: { bookName: '', bid: '' }, tabs: [{ name: '课程学习' }, { name: '练习题' }], bookItem: {}, // 章节内容
-      chapterContentObj: { list: [], num: '', pname: '' }, // 练习题内容
-      exerciseContentList: [] };
+var _project = __webpack_require__(/*! @/api/project/project.js */ 819);
+var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 862);
+var _vuex = __webpack_require__(/*! vuex */ 13);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var bookInfo = function bookInfo() {__webpack_require__.e(/*! require.ensure | pages/book/components/bookInfo */ "pages/book/components/bookInfo").then((function () {return resolve(__webpack_require__(/*! ./components/bookInfo.vue */ 829));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var chapterContent = function chapterContent() {__webpack_require__.e(/*! require.ensure | pages/book/components/chapterContent */ "pages/book/components/chapterContent").then((function () {return resolve(__webpack_require__(/*! ./components/chapterContent.vue */ 836));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var exerciseContent = function exerciseContent() {__webpack_require__.e(/*! require.ensure | pages/book/components/exerciseContent */ "pages/book/components/exerciseContent").then((function () {return resolve(__webpack_require__(/*! ./components/exerciseContent.vue */ 841));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+{
+  components: { bookInfo: bookInfo, chapterContent: chapterContent, exerciseContent: exerciseContent },
+  data: function data() {
+    return {
+      current: 0,
+      bookObj: { bookName: '', bid: '' },
+      tabs: [{ name: '课程学习' }, { name: '练习题' }],
+      bookItem: {},
+      // 章节内容
+      chapterContentObj: { list: [], num: '', pname: '' },
+      // 练习题内容
+      exerciseContentList: [],
+      // 是否收藏了改课程
+      isCollect: false };
+
   },
+  computed: _objectSpread({},
+  (0, _vuex.mapGetters)(['user', 'hasLogin'])),
+
   onLoad: function onLoad(obj) {
     this.bookObj.bookName = obj.name;
     this.bookObj.bid = obj.bid;
     uni.setNavigationBarTitle({
       title: obj.name });
 
+    // 课本信息
     this.getBookInfoBybid({ bid: obj.bid });
-
+    // 课本章节列表
     this.getBookChapterList({ bid: obj.bid });
+    // 查询课程是否收藏
+    this.getCollectOneBook({ bid: obj.bid });
   },
   methods: {
     change: function change(obj) {
@@ -215,12 +225,53 @@ var bookInfo = function bookInfo() {__webpack_require__.e(/*! require.ensure | p
     getBookChapterList: function getBookChapterList(data) {var _this2 = this;
       (0, _project.getBookChapterList)(data).then(function (res) {var
         content = res.data.content;
-        // console.log(content);
         _this2.chapterContentObj.list = content.children;
         _this2.chapterContentObj.pname = content.label;
         // 1级章节数量
         _this2.chapterContentObj.num = content.children.length;
       });
+    },
+    // 课本收藏的相关方法
+    login: function login(temp) {var _this3 = this;
+      var that = this;
+      var postForm = {};
+      uni.getUserProfile({
+        desc: '此操作将会获取你的个人信息',
+        success: function success(res) {var _res$userInfo =
+          res.userInfo,nickName = _res$userInfo.nickName,avatarUrl = _res$userInfo.avatarUrl;
+          postForm.nickName = nickName;
+          postForm.avatarUrl = avatarUrl;
+          uni.login({
+            success: function success(res1) {var
+              code = res1.code;
+              postForm.code = code;
+              _this3.$store.dispatch('login', postForm).then(function (result) {
+                // 登录成功后,立即获取用户信息
+                _this3.$store.dispatch('GetInfo', result.openid).then(function (result1) {
+                  (0, _edit_project.collectBook)(temp).then(function (res) {
+                    that.getCollectOneBook({ bid: temp.bid });
+                  });
+                });
+              });
+            } });
+
+        } });
+
+    },
+    getCollectOneBook: function getCollectOneBook(data) {var _this4 = this;
+      (0, _edit_project.getCollectOneBook)(data).then(function (res) {var
+        isCollect = res.data.isCollect;
+        _this4.isCollect = isCollect;
+      });
+    },
+    collect: function collect(temp) {var _this5 = this;
+      if (!this.hasLogin) {
+        this.login(temp);
+      } else {
+        (0, _edit_project.collectBook)(temp).then(function (res) {
+          _this5.getCollectOneBook({ bid: temp.bid });
+        });
+      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

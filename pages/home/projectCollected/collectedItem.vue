@@ -89,9 +89,9 @@
 			}
 		},
 		methods: {
-			toBookDetail(bid, projectName) {
+			toBookDetail(bid, bookName) {
 				uni.navigateTo({
-					url: `../../book/index?bid = ${bid}&bookName=${projectName}`
+					url: `../../book/index?bid = ${bid}&bookName=${bookName}`
 				})
 			}
 		}

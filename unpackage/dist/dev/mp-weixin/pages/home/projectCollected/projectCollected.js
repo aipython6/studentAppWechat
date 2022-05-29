@@ -156,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var collectedItem = function collectedItem() {__webpack_require__.e(/*! require.ensure | pages/home/projectCollected/collectedItem */ "pages/home/projectCollected/collectedItem").then((function () {return resolve(__webpack_require__(/*! ./collectedItem.vue */ 456));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -192,22 +192,25 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 862);var collectedItem = function collectedItem() {__webpack_require__.e(/*! require.ensure | pages/home/projectCollected/collectedItem */ "pages/home/projectCollected/collectedItem").then((function () {return resolve(__webpack_require__(/*! ./collectedItem.vue */ 456));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: { collectedItem: collectedItem },
   data: function data() {
     return {
       show: false,
-      collectedList: [
-      { id: 1, projectName: '高等数学', publishedName: '清华大学出版社', collectedTime: '2022-05-13', clickNum: 55, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 2, projectName: '大学英语', publishedName: '人民出版社', collectedTime: '2022-05-01', clickNum: 15, studyStatus: '未学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 3, projectName: '大学化学', publishedName: '上海交通大学出版社', collectedTime: '2022-05-11', clickNum: 23, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 4, projectName: '大学物理', publishedName: '复旦大学出版社', collectedTime: '2022-04-29', clickNum: 109, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 5, projectName: '数据结构', publishedName: '同济大学出版社', collectedTime: '2022-05-06', clickNum: 10, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 6, projectName: '软件工程', publishedName: '北京大学出版社', collectedTime: '2022-05-03', clickNum: 88, studyStatus: '未学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' }] };
-
+      collectedList: [] };
 
   },
-  methods: {} };exports.default = _default;
+  onLoad: function onLoad() {
+    this.getCollectedBooks();
+  },
+  methods: {
+    getCollectedBooks: function getCollectedBooks() {var _this = this;
+      (0, _edit_project.getCollectedBooks)().then(function (res) {var
+        content = res.data.content;
+        _this.collectedList = content;
+      });
+    } } };exports.default = _default;
 
 /***/ }),
 

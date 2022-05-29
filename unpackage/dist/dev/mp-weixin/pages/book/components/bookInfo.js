@@ -81,6 +81,9 @@ try {
   components = {
     "u-Image": function() {
       return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 569))
+    },
+    uIcon: function() {
+      return Promise.all(/*! import() | uview/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-icon/u-icon.vue */ 405))
     }
   }
 } catch (e) {
@@ -153,6 +156,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
 var _default2 =
 {
   name: 'bookInfo',
@@ -161,14 +169,24 @@ var _default2 =
       type: Object,
       default: function _default() {
         return {};
+      } },
+
+    isCollect: {
+      type: Boolean,
+      default: function _default() {
+        return false;
       } } },
 
 
   data: function data() {
     return {};
 
-
-  } };exports.default = _default2;
+  },
+  methods: {
+    handle: function handle(bid, isCollect) {
+      var temp = { bid: bid, isCollect: isCollect };
+      this.$emit('collect', temp);
+    } } };exports.default = _default2;
 
 /***/ }),
 

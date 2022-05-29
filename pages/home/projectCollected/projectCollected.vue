@@ -16,16 +16,16 @@
 		<uni-section title="已收藏的课程" type="line" padding></uni-section>
 		<view class="collected-main">
 			<view class="collected-list">
-				<view v-for="(item,index) in collectedList" :key="item.id">
+				<view v-for="(item,index) in collectedList" :key="item.bid">
 					<collectedItem
-					:bid="item.id"
+					:bid="item.bid"
 					:pid="index+1"
-					:avatar="item.avatar"
+					:avatar="item.coverImg"
 					:publshedName="item.publishedName"
-					:projectName="item.projectName"
-					:collctedTime="item.collectedTime"
+					:projectName="item.name"
+					:collctedTime="item.create_time"
 					:clickNum="item.clickNum"
-					:studyStatus="item.studyStatus" />
+					:studyStatus="item.status" />
 				</view>
 			</view>
 		</view>
@@ -34,23 +34,25 @@
 
 <script>
 	import collectedItem from './collectedItem.vue'
+	import { getCollectedBooks } from '@/api/project/edit_project.js'
 	export default {
 		components: { collectedItem },
 		data() {
 			return {
 				show: false,
-				collectedList: [
-					{ id: 1, projectName: '高等数学', publishedName: '清华大学出版社', collectedTime: '2022-05-13', clickNum: 55, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 2, projectName: '大学英语', publishedName: '人民出版社', collectedTime: '2022-05-01', clickNum: 15, studyStatus: '未学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 3, projectName: '大学化学', publishedName: '上海交通大学出版社', collectedTime: '2022-05-11', clickNum: 23, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 4, projectName: '大学物理', publishedName: '复旦大学出版社', collectedTime: '2022-04-29', clickNum: 109, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 5, projectName: '数据结构', publishedName: '同济大学出版社', collectedTime: '2022-05-06', clickNum: 10, studyStatus: '已学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 6, projectName: '软件工程', publishedName: '北京大学出版社', collectedTime: '2022-05-03', clickNum: 88, studyStatus: '未学习', avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' }
-					]
+				collectedList:[]
 			}
 		},
+		onLoad() {
+			this.getCollectedBooks()
+		},
 		methods: {
-			
+				getCollectedBooks() {
+					getCollectedBooks().then(res => {
+						const { content } = res.data
+						this.collectedList = content
+					})
+				}
 		}
 	}
 </script>
