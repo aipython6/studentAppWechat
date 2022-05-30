@@ -9,7 +9,11 @@ const user = {
 		forcedLogin: false,
 		hasLogin: false,
 		user: {},
-		sessionKey: ''
+		sessionKey: '',
+		// 记录3个时间（1.进入学习页面的时间;2.退出学习页面的时间;3.该课本学习的总时间）
+		start_time: '',
+		end_time: '',
+		study_time: ''
 	},
 	
 	mutations: {

@@ -5,17 +5,13 @@
 			<u-avatar size="55" :src="item[0].src"></u-avatar>
 			<u--text :text="item[0].value"></u--text>
 		</view>
-		<view>
+		<view @tap="toProjectCollected">
 			<u-avatar size="55" :src="item[1].src"></u-avatar>
 			<u--text :text="item[1].value"></u--text>
 		</view>
-		<view @tap="toProjectCollected">
+		<view @tap="toStudyRecord">
 			<u-avatar size="55" :src="item[2].src"></u-avatar>
 			<u--text :text="item[2].value"></u--text>
-		</view>
-		<view @tap="toStudyRecord">
-			<u-avatar size="55" :src="item[3].src"></u-avatar>
-			<u--text :text="item[3].value"></u--text>
 		</view>
 	</view>
 </template>

@@ -1,6 +1,6 @@
 <template>
 	<!-- 展示热门课程的小box -->
-	<view class="main" @tap="goProjectDetailList">
+	<view class="main" @tap="goProjectDetailList(projectName, sid)">
 		<view class="box">
 				<text>{{ projectName }}</text>
 		</view>
@@ -16,12 +16,18 @@
 				default: () => {
 					return ''
 				}
+			},
+			sid: {
+				type: Number,
+				default: () => {
+					return 0
+				}
 			}
 		},
 		methods: {
-			goProjectDetailList() {
+			goProjectDetailList(name, sid) {
 				uni.navigateTo({
-					url : './projectDetailList/index'
+					url: `./projectDetailList/bookList?name=${name}&sid=${sid}`
 				})
 			}
 		}

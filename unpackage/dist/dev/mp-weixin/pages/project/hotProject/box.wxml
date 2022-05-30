@@ -1,1 +1,1 @@
-<view data-event-opts="{{[['tap',[['goProjectDetailList',['$event']]]]]}}" class="main data-v-cd393492" bindtap="__e"><view class="box data-v-cd393492"><text class="data-v-cd393492">{{projectName}}</text></view></view>
+<view data-event-opts="{{[['tap',[['goProjectDetailList',['$0','$1'],['projectName','sid']]]]]}}" class="main data-v-cd393492" bindtap="__e"><view class="box data-v-cd393492"><text class="data-v-cd393492">{{projectName}}</text></view></view>

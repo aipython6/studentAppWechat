@@ -11,29 +11,39 @@
 		v-model="bookName" 
 		@search="search">
 		</u-search>
-		<uni-section title="课程列表" type="line" padding></uni-section>
+		<uni-section :title="projectName" type="line" padding></uni-section>
 		<bookBox :projectList="projectList" />
 	</view>
 </template>
 
 <script>
 	import bookBox from './components/bookBox.vue'
+	import { getBookTypeList } from '@/api/project/project.js'
 	export default {
 		components: { bookBox },
 		data() {
 			return {
+				projectName: '',
 				bookName: '',
-				projectList: [{ id: 1, projectName: '常微分方程', num: 5 }, { id: 2, projectName: '抽象代数', num: 3 }, { id: 3, projectName: '高等代数', num: 12 }, { id: 4, projectName: '高等数学', num: 100 }]
+				projectList:[]
 			}
 		},
 		onLoad(obj) {
 			uni.setNavigationBarTitle({
-				title: obj.projectName
+				title: obj.name
 			})
+			this.projectName = obj.name
+			this.getBookTypeList({ sid: obj.sid })
 		},
 		methods: {
-			search() {
-				
+			search(value) {
+				this.projectList = this.projectList.filter((item, index) => item.name === value)
+			},
+			getBookTypeList(data) {
+				getBookTypeList(data).then(res => {
+					const { content } = res.data
+					this.projectList = content
+				})
 			}
 		}
 	}

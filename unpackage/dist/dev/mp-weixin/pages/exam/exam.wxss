@@ -25,19 +25,19 @@
 /* 透明度 */
 /* 文章场景相关 */
 /* nview的配置 */
-.app-container .header-input {
+.app-container .header-input.data-v-68564066 {
   margin: 10rpx 10rpx 25rpx 10rpx;
 }
-.app-container .hot-website {
+.app-container .hot-website.data-v-68564066 {
   margin-bottom: 30rpx;
 }
-.app-container .hot-website .website-pages {
+.app-container .hot-website .website-pages.data-v-68564066 {
   margin: 8rpx 10rpx 0 10rpx;
 }
-.app-container .hot-region {
+.app-container .hot-region.data-v-68564066 {
   margin: 0 15rpx;
 }
-.app-container .hot-region .region-content-list {
+.app-container .hot-region .region-content-list.data-v-68564066 {
   margin-bottom: 20px;
 }
 

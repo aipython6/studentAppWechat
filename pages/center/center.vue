@@ -3,7 +3,7 @@
 	<view class="container">
 		<view class="header">
 			<u-swiper
-				:list="list2"
+				:list="swiperList"
 				keyName="image"
 				showTitle
 				:autoplay="true"
@@ -20,7 +20,7 @@
 		</view>
 		
 		<view class="project">
-			<uni-section title="课程目录" type="line" padding></uni-section>
+			<uni-section title="课程目录" type="line" padding />
 			<projectStudy :item="projectList" />
 		</view>
 		<view class="study">
@@ -45,31 +45,38 @@
 
 <script>
 	import projectStudy from '../../components/myComponents/center/project_study/projectStudy.vue'
+	import { all_images } from '@/api/images/images.js'
 	export default {
 		components: { projectStudy },
 		data() {
 			return {
-				list2: [
-					{ image: 'https://cdn.uviewui.com/uview/swiper/swiper2.png', title: '昨夜星辰昨夜风，画楼西畔桂堂东'},
-					{ image: 'https://cdn.uviewui.com/uview/swiper/swiper1.png', title: '身无彩凤双飞翼，心有灵犀一点通' },
-					{ image: 'https://cdn.uviewui.com/uview/swiper/swiper3.png', title: '谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳' }
-				],
-				// projectList: [
-				// 	{ id: 1, src: 'http://localhost:3000/images/projects/课程目录.png', value: '课程目录' },
-				// 	{ id: 2, src: 'http://localhost:3000/images/projects/热门课程.png', value: '热门课程' },
-				// 	{ id: 3, src: 'http://localhost:3000/images/projects/课程收藏.png', value: '课程收藏' },
-				// 	{ id: 4, src: 'http://localhost:3000/images/projects/最近学习.png', value: '最近学习' }
-				// 	]
-				projectList: [
-					{ id: 1, src: 'https://cdn.uviewui.com/uview/album/1.jpg', value: '课程目录' },
-					{ id: 2, src: 'https://cdn.uviewui.com/uview/album/1.jpg', value: '热门课程' },
-					{ id: 3, src: 'https://cdn.uviewui.com/uview/album/1.jpg', value: '课程收藏' },
-					{ id: 4, src: 'https://cdn.uviewui.com/uview/album/1.jpg', value: '最近学习' }
-					]
+				swiperList: [],
+				projectList: []
 			}
 		},
+		onLoad() {
+			this.allImages()
+			this.allProjects()
+		},
 		methods: {
-
+			allImages() {
+				all_images({ type: 0 }).then(res => {
+					const { content } = res.data
+					this.swiperList = content
+				})
+			},
+			allProjects() {
+				let id = 0
+				all_images({ type: 1 }).then(res => {
+					const { content } = res.data
+					this.projectList = content.map(e => {
+						id++
+						return {
+							id: id, src: e.image, value: e.title
+						}
+					})
+				})
+			}
 		}
 	}
 </script>

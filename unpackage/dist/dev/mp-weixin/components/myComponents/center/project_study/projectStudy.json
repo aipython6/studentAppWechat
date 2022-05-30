@@ -1,7 +1,7 @@
 {
+  "component": true,
   "usingComponents": {
     "u-avatar": "/uview/components/u-avatar/u-avatar",
     "u--text": "/uview/components/u--text/u--text"
-  },
-  "component": true
+  }
 }

@@ -1,6 +1,6 @@
 <template>
 	<!-- 每个children小组件 -->
-	<view class="main" @tap="goProjectDetailList(text)">
+	<view class="main" @tap="goProjectDetailList(text, sid)">
 		<view class="box">
 			<view class="img" :style="{backgroundColor: bgColor}">{{ text.charAt(0) }}</view>
 			<text>{{ text }}</text>
@@ -22,12 +22,18 @@
 				default: () => {
 					return '#2979FF'
 				}
+			},
+			sid: {
+				type: Number,
+				default: () => {
+					return 0
+				}
 			}
 		},
 			methods: {
-				goProjectDetailList(projectName) {
+				goProjectDetailList(name, sid) {
 					uni.navigateTo({
-						url: `./projectDetailList/bookList?projectName=${projectName}`
+						url: `./projectDetailList/bookList?name=${name}&sid=${sid}`
 					})
 				}
 			}
