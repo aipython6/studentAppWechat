@@ -156,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var projectItem = function projectItem() {__webpack_require__.e(/*! require.ensure | pages/home/studyRecord/projectItem */ "pages/home/studyRecord/projectItem").then((function () {return resolve(__webpack_require__(/*! ./projectItem.vue */ 599));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -191,29 +191,30 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
-
-
-
+var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 205);var projectItem = function projectItem() {__webpack_require__.e(/*! require.ensure | pages/home/studyRecord/projectItem */ "pages/home/studyRecord/projectItem").then((function () {return resolve(__webpack_require__(/*! ./projectItem.vue */ 599));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: { projectItem: projectItem },
   data: function data() {
     return {
       // 根据课程名称搜索
       projectName: '',
-      projectList: [
-      { id: 1, projectName: '高等数学', publishedName: '清华大学出版社', studyTime: '2022-05-13', sumStudyTime: 55, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 2, projectName: '大学英语', publishedName: '人民出版社', studyTime: '2022-05-01', sumStudyTime: 15, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 3, projectName: '大学化学', publishedName: '上海交通大学出版社', studyTime: '2022-05-11', sumStudyTime: 23, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 4, projectName: '大学物理', publishedName: '复旦大学出版社', studyTime: '2022-04-29', sumStudyTime: 109, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 5, projectName: '数据结构', publishedName: '同济大学出版社', studyTime: '2022-05-06', sumStudyTime: 10, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-      { id: 6, projectName: '软件工程', publishedName: '北京大学出版社', studyTime: '2022-05-03', sumStudyTime: 88, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' }] };
-
+      projectList: [] };
 
   },
+  onLoad: function onLoad() {
+    this.getStudyProjectList();
+  },
   methods: {
-    search: function search(e) {
-
+    search: function search(e) {},
+    // 获取已学习的课程列表,根据openid获取即可
+    getStudyProjectList: function getStudyProjectList() {var _this = this;
+      (0, _edit_project.getStudyProjectList)().then(function (res) {var
+        content = res.data.content;
+        _this.projectList = content;
+      });
+    },
+    cancel: function cancel(_ref) {var id = _ref.id;
+      (0, _edit_project.deleteStudyProject)({ id: id }).then(function (res) {});
     } } };exports.default = _default;
 
 /***/ }),

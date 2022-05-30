@@ -20,15 +20,11 @@
 				
 			</view>
 			<view class="project-list">
-				<view v-for="(item,index) in projectList" :key="item.id">
+				<view v-for="(item, index) in projectList" :key="item.id">
 					<projectItem
-					:bid="item.id"
+					:projectItem="item"
 					:pid="index+1"
-					:avatar="item.avatar"
-					:publshedName="item.publishedName"
-					:projectName="item.projectName"
-					:studyTime="item.studyTime"
-					:sumStudyTime="item.sumStudyTime" />
+					 @cancel='cancel' />
 				</view>
 			</view>
 		</view>
@@ -37,25 +33,30 @@
 
 <script>
 	import projectItem from './projectItem.vue'
+	import { getStudyProjectList, deleteStudyProject } from '@/api/project/edit_project.js'
 	export default {
 		components: { projectItem },
 		data() {
 			return {
 				// 根据课程名称搜索
 				projectName: '',
-				projectList: [
-					{ id: 1, projectName: '高等数学', publishedName: '清华大学出版社', studyTime: '2022-05-13', sumStudyTime: 55, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 2, projectName: '大学英语', publishedName: '人民出版社', studyTime: '2022-05-01', sumStudyTime: 15, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 3, projectName: '大学化学', publishedName: '上海交通大学出版社', studyTime: '2022-05-11', sumStudyTime: 23, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 4, projectName: '大学物理', publishedName: '复旦大学出版社', studyTime: '2022-04-29', sumStudyTime: 109, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 5, projectName: '数据结构', publishedName: '同济大学出版社', studyTime: '2022-05-06', sumStudyTime: 10, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' },
-					{ id: 6, projectName: '软件工程', publishedName: '北京大学出版社', studyTime: '2022-05-03', sumStudyTime: 88, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg' }
-					]
+				projectList: []
 			}
 		},
+		onLoad() {
+			this.getStudyProjectList()
+		},
 		methods: {
-			search(e) {
-				
+			search(e) {},
+			// 获取已学习的课程列表,根据openid获取即可
+			getStudyProjectList() {
+				getStudyProjectList().then(res => {
+					const { content } = res.data
+					this.projectList = content
+				})
+			},
+			cancel({ id }) {
+				deleteStudyProject({ id: id }).then(res => {})
 			}
 		}
 	}

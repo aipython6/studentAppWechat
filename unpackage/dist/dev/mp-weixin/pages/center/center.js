@@ -206,18 +206,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _images = __webpack_require__(/*! @/api/images/images.js */ 148);var projectStudy = function projectStudy() {__webpack_require__.e(/*! require.ensure | components/myComponents/center/project_study/projectStudy */ "components/myComponents/center/project_study/projectStudy").then((function () {return resolve(__webpack_require__(/*! ../../components/myComponents/center/project_study/projectStudy.vue */ 408));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _images = __webpack_require__(/*! @/api/images/images.js */ 148);
+var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 205);var projectStudy = function projectStudy() {__webpack_require__.e(/*! require.ensure | components/myComponents/center/project_study/projectStudy */ "components/myComponents/center/project_study/projectStudy").then((function () {return resolve(__webpack_require__(/*! ../../components/myComponents/center/project_study/projectStudy.vue */ 408));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: { projectStudy: projectStudy },
   data: function data() {
     return {
       swiperList: [],
-      projectList: [] };
+      projectList: [],
+      num: '' };
 
   },
   onLoad: function onLoad() {
     this.allImages();
     this.allProjects();
+    this.getStudentNumFromStudyProject();
   },
   methods: {
     allImages: function allImages() {var _this = this;
@@ -236,6 +239,13 @@ var _images = __webpack_require__(/*! @/api/images/images.js */ 148);var project
             id: id, src: e.image, value: e.title };
 
         });
+      });
+    },
+    // 从课程学习关系表中获取已学习的学生数量
+    getStudentNumFromStudyProject: function getStudentNumFromStudyProject() {var _this3 = this;
+      (0, _edit_project.getStudentNumFromStudyProject)().then(function (res) {var
+        num = res.data.num;
+        _this3.num = num;
       });
     } } };exports.default = _default;
 

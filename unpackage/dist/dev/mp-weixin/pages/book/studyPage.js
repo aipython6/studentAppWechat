@@ -171,25 +171,20 @@ var _moment = _interopRequireDefault(__webpack_require__(/*! moment */ 247));fun
 
   onHide: function onHide() {
     this.end_time = new Date();
-    // 只有登录后才开始进行计时操作,否则就是以游客的方式学习，不计时
-    if (this.hasLogin) {
-      // 首次学习
-      if (this.isFirst) {
-        this.setStudyProjectRecord({ bid: this.bid, pid: this.pid, start_time: this.start_time, end_time: this.end_time, temp_start_time: this.start_time, temp_end_time: this.end_tiem, study_time: this.study_time });
-      } else {
-        this.updateStudyProjectRecord({ bid: this.bid, pid: this.pid, temp_start_time: this.start_time, temp_end_time: this.end_time, study_time: this.study_time });
-      }
+    // 首次学习
+    if (this.isFirst) {
+      this.setStudyProjectRecord({ bid: this.bid, pid: this.pid, start_time: this.start_time, end_time: this.end_time, temp_start_time: this.start_time, temp_end_time: this.end_tiem, study_time: this.study_time });
+    } else {
+      this.updateStudyProjectRecord({ bid: this.bid, pid: this.pid, temp_start_time: this.start_time, temp_end_time: this.end_time, study_time: this.study_time });
     }
   },
   onUnload: function onUnload() {
     this.end_time = new Date();
-    if (this.hasLogin) {
-      // 首次学习
-      if (this.isFirst) {
-        this.setStudyProjectRecord({ bid: this.bid, pid: this.pid, start_time: this.start_time, end_time: this.end_time, temp_start_time: this.start_time, temp_end_time: this.end_tiem, study_time: this.study_time });
-      } else {
-        this.updateStudyProjectRecord({ bid: this.bid, pid: this.pid, temp_start_time: this.start_time, temp_end_time: this.end_time, study_time: this.study_time });
-      }
+    // 首次学习
+    if (this.isFirst) {
+      this.setStudyProjectRecord({ bid: this.bid, pid: this.pid, start_time: this.start_time, end_time: this.end_time, temp_start_time: this.start_time, temp_end_time: this.end_tiem, study_time: this.study_time });
+    } else {
+      this.updateStudyProjectRecord({ bid: this.bid, pid: this.pid, temp_start_time: this.start_time, temp_end_time: this.end_time, study_time: this.study_time });
     }
   },
 
@@ -197,10 +192,7 @@ var _moment = _interopRequireDefault(__webpack_require__(/*! moment */ 247));fun
     uni.setNavigationBarTitle({
       title: obj.name });
 
-    console.log(this.hasLogin);
-    if (this.hasLogin) {
-      this.getStudyProjectRecord({ pid: obj.pid });
-    }
+    this.getStudyProjectRecord({ pid: obj.pid });
     this.start_time = new Date();
     this.start();
     this.bid = obj.bid;

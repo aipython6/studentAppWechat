@@ -1,25 +1,25 @@
 <template>
 	<!-- 课程学习列表的组件 -->
-	<view class="container" @tap="toBookDetail(bid, projectName)">
+	<view class="container" >
 		<u-swipe-action>
-				<u-swipe-action-item :options="options" :duration="1000">
-						<view class="swipe-action u-border-top u-border-bottom">
+				<u-swipe-action-item :options="options" :duration="1000" @click="cancel(projectItem.id)">
+						<view class="swipe-action u-border-top u-border-bottom" @tap="toBookDetail(projectItem.bid, projectItem.name)">
 								<view class="swipe-action__content">
 									<u-row justify="space-between" gutter="10">
 										<u-col span="1"><text style="font-size: 16px;">{{ pid }}.</text></u-col>
 										<u-col span="3">
-											<u--image :src="avatar" radius="10" :fade="true" duration="450" height="80" width="80" />
+											<u--image :src="projectItem.coverImg" radius="10" :fade="true" duration="450" height="80" width="80" />
 										</u-col>
 										<u-col span="8">
 											<view class="line1">
-												<text class="swipe-action__content__text">课程名称: {{ projectName }}</text>
-												<text class="swipe-action__content__text">出版社: {{ publshedName }}</text>
+												<text class="swipe-action__content__text">课程名称: {{ projectItem.name }}</text>
+												<text class="swipe-action__content__text">出版社: {{ projectItem.publishedName }}</text>
 											</view>
 											<view class="line2">
-												<text class="swipe-action__content__text">最近学习: {{ studyTime }}</text>
+												<text class="swipe-action__content__text">最近学习: {{ projectItem.temp_end_time }}</text>
 											</view>
 											<view class="line3">
-												<text class="swipe-action__content__text">学习时长: {{ sumStudyTime }}分钟</text>
+												<text class="swipe-action__content__text">学习时长: {{ projectItem.study_time }}</text>
 											</view>
 										</u-col>
 									</u-row>
@@ -34,44 +34,14 @@
 	export default {
 		name: 'projectItem',
 		props: {
-			bid: {
-				type: Number
-			},
 			pid: {
 				type: Number,
 			},
-			avatar: {
-				type: String,
+			projectItem: {
+				type: Object,
 				default: () => {
-					return ''
-				}
-			},
-			projectName: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			/// 出版社
-			publshedName: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			// 最近一次学习时间
-			studyTime: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			// 该门课程学习时长
-			sumStudyTime: {
-				type: String,
-				default: () => {
-					return ''
-				}
+					 return {}
+				 }
 			}
 		},
 		data() {
@@ -80,10 +50,14 @@
 			}
 		},
 		methods: {
-			toBookDetail(bid, projectName) {
+			toBookDetail(bid, bookName) {
 				uni.navigateTo({
-					url: `../../book/index?bid=${bid}&bookName=${projectName}`
+					url: `../../book/index?bid=${bid}&bookName=${bookName}`
 				})
+			},
+			// 根据id删除一条学习记录
+			cancel(id) {
+				this.$emit('cancel', { id: id })
 			}
 		}
 	}

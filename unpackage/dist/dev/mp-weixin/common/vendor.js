@@ -18595,7 +18595,7 @@ function get_nocice(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getCollectOneBook = getCollectOneBook;exports.collectBook = collectBook;exports.getCollectedBooks = getCollectedBooks;exports.setStudyProjectRecord = setStudyProjectRecord;exports.getStudyProjectRecord = getStudyProjectRecord;exports.updateStudyProjectRecord = updateStudyProjectRecord;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.getCollectOneBook = getCollectOneBook;exports.collectBook = collectBook;exports.getCollectedBooks = getCollectedBooks;exports.setStudyProjectRecord = setStudyProjectRecord;exports.getStudyProjectRecord = getStudyProjectRecord;exports.updateStudyProjectRecord = updateStudyProjectRecord;exports.getStudyProjectList = getStudyProjectList;exports.deleteStudyProject = deleteStudyProject;exports.getStudentNumFromStudyProject = getStudentNumFromStudyProject;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 该文件下的访问是对课程收藏和课程学习的数据库修改方法
 
 // 1
@@ -18647,6 +18647,30 @@ function updateStudyProjectRecord(data) {
     url: 'api/student/updateStudyProjectRecord',
     method: 'POST',
     data: data });
+
+}
+
+function getStudyProjectList(data) {
+  return (0, _request.default)({
+    url: 'api/student/getStudyProjectList',
+    method: 'GET',
+    data: data });
+
+}
+
+// 根据id删除一条学习记录表中的数据
+function deleteStudyProject(data) {
+  return (0, _request.default)({
+    url: 'api/student/deleteStudyProject',
+    method: 'GET',
+    data: data });
+
+}
+
+function getStudentNumFromStudyProject() {
+  return (0, _request.default)({
+    url: 'api/student/getStudentNumFromStudyProject',
+    method: 'GET' });
 
 }
 

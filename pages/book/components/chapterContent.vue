@@ -59,9 +59,13 @@
 			// 跳转到最终学习的页面
 			toStudyPage(id, secondName,pid) {
 				const url =  `./studyPage?bid=${id}&name=${secondName}&pid=${pid}`
-				uni.navigateTo({
-					url: url
-				})
+				if (!this.hasLogin) {
+					this.login(url)
+				} else {
+					uni.navigateTo({
+						url: url
+					})
+				}
 			}
 		}
 	}

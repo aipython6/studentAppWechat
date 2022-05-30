@@ -185,43 +185,13 @@ var _default2 =
 {
   name: 'projectItem',
   props: {
-    bid: {
-      type: Number },
-
     pid: {
       type: Number },
 
-    avatar: {
-      type: String,
+    projectItem: {
+      type: Object,
       default: function _default() {
-        return '';
-      } },
-
-    projectName: {
-      type: String,
-      default: function _default() {
-        return '';
-      } },
-
-    /// 出版社
-    publshedName: {
-      type: String,
-      default: function _default() {
-        return '';
-      } },
-
-    // 最近一次学习时间
-    studyTime: {
-      type: String,
-      default: function _default() {
-        return '';
-      } },
-
-    // 该门课程学习时长
-    sumStudyTime: {
-      type: String,
-      default: function _default() {
-        return '';
+        return {};
       } } },
 
 
@@ -231,10 +201,14 @@ var _default2 =
 
   },
   methods: {
-    toBookDetail: function toBookDetail(bid, projectName) {
+    toBookDetail: function toBookDetail(bid, bookName) {
       uni.navigateTo({
-        url: "../../book/index?bid=".concat(bid, "&bookName=").concat(projectName) });
+        url: "../../book/index?bid=".concat(bid, "&bookName=").concat(bookName) });
 
+    },
+    // 根据id删除一条学习记录
+    cancel: function cancel(id) {
+      this.$emit('cancel', { id: id });
     } } };exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

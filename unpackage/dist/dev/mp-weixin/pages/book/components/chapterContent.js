@@ -201,9 +201,13 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
     // 跳转到最终学习的页面
     toStudyPage: function toStudyPage(id, secondName, pid) {
       var url = "./studyPage?bid=".concat(id, "&name=").concat(secondName, "&pid=").concat(pid);
-      uni.navigateTo({
-        url: url });
+      if (!this.hasLogin) {
+        this.login(url);
+      } else {
+        uni.navigateTo({
+          url: url });
 
+      }
     } } };exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

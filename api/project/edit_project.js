@@ -52,3 +52,27 @@ export function updateStudyProjectRecord(data) {
 		data: data
 	})
 }
+
+export function getStudyProjectList(data) {
+	return request({
+		url: 'api/student/getStudyProjectList',
+		method: 'GET',
+		data: data
+	})
+}
+
+// 根据id删除一条学习记录表中的数据
+export function deleteStudyProject(data) {
+	return request({
+		url: 'api/student/deleteStudyProject',
+		method: 'GET',
+		data: data
+	})
+}
+
+export function getStudentNumFromStudyProject() {
+	return request({
+		url: 'api/student/getStudentNumFromStudyProject',
+		method: 'GET',
+	})
+}

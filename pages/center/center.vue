@@ -27,7 +27,7 @@
 			<uni-section title="大家都在学" type="line" padding></uni-section>
 				<view class="study-list">
 					<view>
-						<view><u--text text="当前已有15523位" size="16" type="primary"></u--text></view>
+						<view><u--text :text="'当前已有'+ num +'位'" size="16" type="primary"></u--text></view>
 						<view><u--text text="同学学习了课程" size="16" type="primary"></u--text></view>
 					</view>
 					<view>
@@ -46,17 +46,20 @@
 <script>
 	import projectStudy from '../../components/myComponents/center/project_study/projectStudy.vue'
 	import { all_images } from '@/api/images/images.js'
+	import { getStudentNumFromStudyProject } from '@/api/project/edit_project.js'
 	export default {
 		components: { projectStudy },
 		data() {
 			return {
 				swiperList: [],
-				projectList: []
+				projectList: [],
+				num: ''
 			}
 		},
 		onLoad() {
 			this.allImages()
 			this.allProjects()
+			this.getStudentNumFromStudyProject()
 		},
 		methods: {
 			allImages() {
@@ -75,6 +78,13 @@
 							id: id, src: e.image, value: e.title
 						}
 					})
+				})
+			},
+			// 从课程学习关系表中获取已学习的学生数量
+			getStudentNumFromStudyProject() {
+				getStudentNumFromStudyProject().then(res => {
+					const { num } = res.data
+					this.num = num
 				})
 			}
 		}
