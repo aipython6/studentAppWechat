@@ -28,6 +28,14 @@
 				</view>
 			</view>
 		</view>
+		<u-modal
+		:show="show"
+		:closeOnClickOverlay="true"
+		:showCancelButton="true"
+		title="删除后不可恢复,是否继续?"
+		@confirm="deleteStudyRecord"
+		@cancel="cancelModal"
+		@close="cancelModal" />
 	</view>
 </template>
 
@@ -38,6 +46,8 @@
 		components: { projectItem },
 		data() {
 			return {
+				show: false,
+				id: '',
 				// 根据课程名称搜索
 				projectName: '',
 				projectList: []
@@ -55,8 +65,18 @@
 					this.projectList = content
 				})
 			},
-			cancel({ id }) {
-				deleteStudyProject({ id: id }).then(res => {})
+			cancel({ id, show }) {
+				this.show = show
+				this.id = id
+			},
+			deleteStudyRecord() {
+				deleteStudyProject({ id: this.id }).then(res => {
+					this.show = false
+					this.getStudyProjectList()
+				})
+			},
+			cancelModal() {
+				this.show = false
 			}
 		}
 	}

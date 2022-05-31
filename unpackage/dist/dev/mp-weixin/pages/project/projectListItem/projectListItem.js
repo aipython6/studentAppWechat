@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var boxItem = function boxItem() {__webpack_require__.e(/*! require.ensure | pages/project/projectListItem/boxItem */ "pages/project/projectListItem/boxItem").then((function () {return resolve(__webpack_require__(/*! ./boxItem.vue */ 856));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default2 =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var boxItem = function boxItem() {__webpack_require__.e(/*! require.ensure | pages/project/projectListItem/boxItem */ "pages/project/projectListItem/boxItem").then((function () {return resolve(__webpack_require__(/*! ./boxItem.vue */ 856));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default2 =
 
 
 
@@ -167,7 +167,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       type: Array,
       default: function _default() {
         return [];
-      } } } };exports.default = _default2;
+      } } },
+
+
+  methods: {
+    gotoProjectList: function gotoProjectList(_ref) {var name = _ref.name,sid = _ref.sid;
+      uni.navigateTo({
+        url: "./projectDetailList/bookList?name=".concat(name, "&sid=").concat(sid) });
+
+    } } };exports.default = _default2;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

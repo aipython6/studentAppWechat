@@ -5,6 +5,7 @@
     "u-swiper": "/uview/components/u-swiper/u-swiper",
     "uni-section": "/components/uni/uni-section/uni-section",
     "u--text": "/uview/components/u--text/u--text",
-    "project-study": "/components/myComponents/center/project_study/projectStudy"
+    "project-study": "/components/myComponents/center/project_study/projectStudy",
+    "box-item": "/pages/project/projectListItem/boxItem"
   }
 }

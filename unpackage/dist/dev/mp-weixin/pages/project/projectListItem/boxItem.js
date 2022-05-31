@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -157,11 +157,8 @@ var _default2 =
 
   methods: {
     goProjectDetailList: function goProjectDetailList(name, sid) {
-      uni.navigateTo({
-        url: "./projectDetailList/bookList?name=".concat(name, "&sid=").concat(sid) });
-
+      this.$emit('gotoProjectList', { name: name, sid: sid });
     } } };exports.default = _default2;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

@@ -3,7 +3,7 @@
 	<view class="container">
 		<view class="chapter">
 			<view class="text">{{ chapter }}</view>
-			<view class="time">当前学习时间:{{ show_time }}</view>
+			<view class="time">当前课程已学习:{{ show_time }}</view>
 		</view>
 		
 		<block v-for="item, index in chapterContentList">

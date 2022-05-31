@@ -4,7 +4,7 @@
 		<uni-section :title="parentType" type="line" padding></uni-section>
 		<view class="item">
 			<view v-for="(item,index) in childrenList" :key="item.sid">
-					<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" />
+					<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" @gotoProjectList="gotoProjectList" />
 			</view>
 		</view>
 	</view>
@@ -29,6 +29,13 @@
 				default: () => {
 					return []
 				}
+			}
+		},
+		methods: {
+			gotoProjectList({ name, sid }) {
+				uni.navigateTo({
+					url: `./projectDetailList/bookList?name=${name}&sid=${sid}`
+				})
 			}
 		}
 	}

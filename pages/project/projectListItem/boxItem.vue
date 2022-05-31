@@ -32,9 +32,7 @@
 		},
 			methods: {
 				goProjectDetailList(name, sid) {
-					uni.navigateTo({
-						url: `./projectDetailList/bookList?name=${name}&sid=${sid}`
-					})
+					this.$emit('gotoProjectList', { name: name, sid: sid })
 				}
 			}
 	}

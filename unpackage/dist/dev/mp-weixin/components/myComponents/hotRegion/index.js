@@ -211,9 +211,9 @@ var _default2 =
 
 
   methods: {
-    click: function click(item) {
+    gotoLinksPage: function gotoLinksPage(name, id) {
       uni.navigateTo({
-        url: "../../pages/exam/websiteList/index?name=".concat(item.name, "&pid=").concat(item.id) });
+        url: "../../pages/exam/websiteList/index?name=".concat(name, "&pid=").concat(id) });
 
     } } };exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

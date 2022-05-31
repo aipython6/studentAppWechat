@@ -42,16 +42,6 @@
 			const { name, id } = obj
 			this.getWebsiteList(name)
 		},
-		// onReachBottom() {
-		// 	if(this.page >= 3) return ;
-		// 	this.status = '加载中';
-		// 	this.page = ++ this.page;
-		// 	setTimeout(() => {
-		// 		this.list += 10;
-		// 		if(this.page >= 3) this.status = '已经到底了';
-		// 		else this.status = '加载中';
-		// 	}, 2000)
-		// },
 		methods: {
 			scrolltolower(obj) {
 				

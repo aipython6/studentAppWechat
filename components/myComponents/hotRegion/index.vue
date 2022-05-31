@@ -4,39 +4,39 @@
 			<swiper-item>
 			<u-grid :border="true" :col="4">
 			<u-grid-item
-			v-for="(item, index) in regionList.slice(0,12)" 
+			v-for="(region, index) in regionList.slice(0,12)" 
 			:index="index"
-			:key="item.id"
-			@click="click(item)"
+			:key="region.id"
+			@click="gotoLinksPage(region.name, region.id)"
 			>
-			<text class="grid-text">{{ item.name }}</text>
-			<text class="grid-text" style="color:#007AFF">({{ item.num }})</text>
+			<text class="grid-text">{{ region.name }}</text>
+			<text class="grid-text" style="color:#007AFF">({{ region.num }})</text>
 			</u-grid-item>
 			</u-grid>
 			</swiper-item>
 			<swiper-item>
 			<u-grid :border="true" :col="4">
 			<u-grid-item
-			v-for="(item, index) in regionList.slice(13,25)" 
+			v-for="(region, index) in regionList.slice(13,25)" 
 			:index="index+12"
-			:key="item.id"
-			@click="click(item)"
+			:key="region.id"
+			@click="gotoLinksPage(region.name, region.id)"
 			>
-			<text class="grid-text">{{ item.name }}</text>
-			<text class="grid-text" style="color:#007AFF">({{ item.num }})</text>
+			<text class="grid-text">{{ region.name }}</text>
+			<text class="grid-text" style="color:#007AFF">({{ region.num }})</text>
 			</u-grid-item>
 			</u-grid>
 			</swiper-item>
 			<swiper-item>
 			<u-grid :border="true" :col="4">
 			<u-grid-item
-			v-for="(item, index) in regionList.slice(25,36)" 
+			v-for="(region, index) in regionList.slice(25,36)" 
 			:index="index+24"
-			:key="item.id"
-			@click="click(item)"
+			:key="region.id"
+			@click="gotoLinksPage(region.name,region.id)"
 			>
-			<text class="grid-text">{{ item.name }}</text>
-			<text class="grid-text" style="color:#007AFF">({{ item.num }})</text>
+			<text class="grid-text">{{ region.name }}</text>
+			<text class="grid-text" style="color:#007AFF">({{ region.num }})</text>
 			</u-grid-item>
 			</u-grid>
 			</swiper-item>
@@ -56,9 +56,9 @@
 			}
 			},
 			methods: {
-				click (item) {
+				gotoLinksPage(name, id) {
 					uni.navigateTo({
-						url: `../../pages/exam/websiteList/index?name=${item.name}&pid=${item.id}`
+						url: `../../pages/exam/websiteList/index?name=${name}&pid=${id}`
 					});
 				}
 			}

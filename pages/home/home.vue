@@ -20,15 +20,5 @@
 		computed: {
 			...mapGetters(['user'])
 		},
-		onLoad() {
-			
-		},
-		methods: {
-			
-		}
 	}
 </script>
-
-<style>
-
-</style>

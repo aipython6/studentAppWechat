@@ -9130,7 +9130,7 @@ var user = {
           if (res.data.code === 200) {
             (0, _auth2.setToken)(content.sessionKey);
             (0, _auth2.setOpenid)(content.openid);
-            (0, _auth2.setHasLogin)('true');
+            (0, _auth2.setHasLogin)(true);
             commit('SET_SESSIONKEY', content.sessionKey);
             commit('SET_OPENID', content.openid);
             commit('SET_HASLOGIN', true);
@@ -18480,114 +18480,7 @@ function all_images(data) {
 }
 
 /***/ }),
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */
-/*!*************************************************************!*\
-  !*** E:/studentApp/studentAppWechat/api/website/website.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.all_website = all_website;exports.all_website_byName = all_website_byName;exports.all_region_website = all_region_website;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-function all_website(data) {
-  return (0, _request.default)({
-    url: 'api/wx/website/getAllLinks',
-    method: 'GET',
-    data: data });
-
-}
-
-function all_website_byName(data) {
-  return (0, _request.default)({
-    url: 'api/wx/website/allLinksByName',
-    method: 'GET',
-    data: data });
-
-}
-
-function all_region_website() {
-  return (0, _request.default)({
-    url: 'api/wx/website/allRegionWebsite',
-    method: 'GET' });
-
-}
-
-/***/ }),
-/* 164 */
-/*!***********************************************************!*\
-  !*** E:/studentApp/studentAppWechat/api/notice/notice.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.get_nocice = get_nocice;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-function get_nocice(data) {
-  return (0, _request.default)({
-    url: 'api/wx/website/getNotice',
-    method: 'GET',
-    data: data });
-
-}
-
-/***/ }),
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */
+/* 149 */
 /*!******************************************************************!*\
   !*** E:/studentApp/studentAppWechat/api/project/edit_project.js ***!
   \******************************************************************/
@@ -18595,7 +18488,7 @@ function get_nocice(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getCollectOneBook = getCollectOneBook;exports.collectBook = collectBook;exports.getCollectedBooks = getCollectedBooks;exports.setStudyProjectRecord = setStudyProjectRecord;exports.getStudyProjectRecord = getStudyProjectRecord;exports.updateStudyProjectRecord = updateStudyProjectRecord;exports.getStudyProjectList = getStudyProjectList;exports.deleteStudyProject = deleteStudyProject;exports.getStudentNumFromStudyProject = getStudentNumFromStudyProject;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.getCollectOneBook = getCollectOneBook;exports.collectBook = collectBook;exports.getCollectedBooks = getCollectedBooks;exports.setStudyProjectRecord = setStudyProjectRecord;exports.getStudyProjectRecord = getStudyProjectRecord;exports.updateStudyProjectRecord = updateStudyProjectRecord;exports.getStudyProjectList = getStudyProjectList;exports.deleteStudyProject = deleteStudyProject;exports.getStudentNumFromStudyProject = getStudentNumFromStudyProject;exports.getTodayStudyProject = getTodayStudyProject;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 该文件下的访问是对课程收藏和课程学习的数据库修改方法
 
 // 1
@@ -18674,7 +18567,121 @@ function getStudentNumFromStudyProject() {
 
 }
 
+function getTodayStudyProject() {
+  return (0, _request.default)({
+    url: 'api/student/getTodayStudyProject',
+    method: 'GET' });
+
+}
+
 /***/ }),
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */
+/*!*************************************************************!*\
+  !*** E:/studentApp/studentAppWechat/api/website/website.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.all_website = all_website;exports.all_website_byName = all_website_byName;exports.all_region_website = all_region_website;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function all_website(data) {
+  return (0, _request.default)({
+    url: 'api/wx/website/getAllLinks',
+    method: 'GET',
+    data: data });
+
+}
+
+function all_website_byName(data) {
+  return (0, _request.default)({
+    url: 'api/wx/website/allLinksByName',
+    method: 'GET',
+    data: data });
+
+}
+
+function all_region_website() {
+  return (0, _request.default)({
+    url: 'api/wx/website/allRegionWebsite',
+    method: 'GET' });
+
+}
+
+/***/ }),
+/* 165 */
+/*!***********************************************************!*\
+  !*** E:/studentApp/studentAppWechat/api/notice/notice.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.get_nocice = get_nocice;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function get_nocice(data) {
+  return (0, _request.default)({
+    url: 'api/wx/website/getNotice',
+    method: 'GET',
+    data: data });
+
+}
+
+/***/ }),
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
 /* 206 */,
 /* 207 */,
 /* 208 */,

@@ -57,7 +57,7 @@
 			},
 			// 根据id删除一条学习记录
 			cancel(id) {
-				this.$emit('cancel', { id: id })
+				this.$emit('cancel', { id: id, show: true })
 			}
 		}
 	}

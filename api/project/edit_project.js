@@ -76,3 +76,10 @@ export function getStudentNumFromStudyProject() {
 		method: 'GET',
 	})
 }
+
+export function getTodayStudyProject() {
+	return request({
+		url: 'api/student/getTodayStudyProject',
+		method: 'GET',
+	})
+}

@@ -38,7 +38,7 @@ const user = {
 					if (res.data.code === 200) {
 						setToken(content.sessionKey)
 						setOpenid(content.openid)
-						setHasLogin('true')
+						setHasLogin(true)
 						commit('SET_SESSIONKEY', content.sessionKey)
 						commit('SET_OPENID', content.openid)
 						commit('SET_HASLOGIN', true)

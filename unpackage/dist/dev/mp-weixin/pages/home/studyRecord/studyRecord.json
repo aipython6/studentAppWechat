@@ -4,6 +4,7 @@
   "usingComponents": {
     "u-search": "/uview/components/u-search/u-search",
     "uni-section": "/components/uni/uni-section/uni-section",
+    "u-modal": "/uview/components/u-modal/u-modal",
     "project-item": "/pages/home/studyRecord/projectItem"
   }
 }
