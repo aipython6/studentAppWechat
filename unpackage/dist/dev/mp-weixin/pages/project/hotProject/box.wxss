@@ -26,15 +26,9 @@
 /* 文章场景相关 */
 /* nview的配置 */
 .main .box.data-v-cd393492 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 8rpx;
   background-color: #F2F6FC;
   height: 20px;

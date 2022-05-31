@@ -7,7 +7,7 @@
 		<u-tabs :list="tabs" :current="current" lineColor="#f56c6c" @change="change"></u-tabs>
 		<view>
 			<chapterContent :obj="chapterContentObj" v-if="current===0" />
-			<exerciseContent v-else-if="current===1" />
+			<exerciseContent :obj="chapterContentObj" v-else-if="current===1" />
 		</view>
 	</view>
 </template>
@@ -30,7 +30,7 @@
 				// 章节内容
 				chapterContentObj: { list: [], num: '', pname: '', pid: '' },
 				// 练习题内容
-				exerciseContentList: [],
+				exerciseContentList: { list: [], num: '', pname: '', pid: '' },
 				// 是否收藏了改课程
 				isCollect: false
 			}

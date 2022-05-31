@@ -77,6 +77,7 @@ export function getStudentNumFromStudyProject() {
 	})
 }
 
+// 根据openid今日战果数据
 export function getTodayStudyProject() {
 	return request({
 		url: 'api/student/getTodayStudyProject',

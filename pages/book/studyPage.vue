@@ -65,6 +65,7 @@
 			this.start()
 			this.bid = obj.bid
 			this.pid = obj.pid
+			// type = 0表示获取章节内容
 			this.getChapterConentList({ bid: obj.bid, type: 0 })
 			this.chapter = obj.name
 		},

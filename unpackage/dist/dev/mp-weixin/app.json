@@ -12,7 +12,8 @@
     "pages/project/projectDetailList/index",
     "pages/project/projectDetailList/bookList",
     "pages/book/index",
-    "pages/book/studyPage"
+    "pages/book/studyPage",
+    "pages/book/exercisePage"
   ],
   "subPackages": [],
   "window": {
@@ -52,6 +53,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

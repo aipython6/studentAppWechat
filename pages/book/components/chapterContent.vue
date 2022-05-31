@@ -8,7 +8,7 @@
 				<view class="third" v-for="subitem, subindex in item.children" :key="subindex">
 					<view class="fourth" @tap="toStudyPage(subitem.id, subitem.label, obj.pid)">{{ subitem.label}}</view>
 				</view>
-				<u-divider></u-divider>
+				<u-divider />
 			</view>
 	</view>
 	

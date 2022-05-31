@@ -13,9 +13,7 @@
 	export default {
 		components: { userinfo, menuList },
 		data() {
-			return {
-				// userinfo : { id: 1, username: '董潇潇', gender: '女', age: 21, avatar: 'https://cdn.uviewui.com/uview/album/1.jpg', email: 'dxx20010515@pku.edu.cn', school: '北京大学', professional: '软件工程' }
-			}
+			return {}
 		},
 		computed: {
 			...mapGetters(['user'])
