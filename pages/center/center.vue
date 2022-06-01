@@ -82,6 +82,8 @@
 		onShow() {
 			this.getTodayStudyProject()
 			this.getTodayExerciseList()
+			this.getStudentNumFromStudyProject()
+			this.getStudentNumFromExerciseProject()
 		},
 		onLoad() {
 			this.allImages()

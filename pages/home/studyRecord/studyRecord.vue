@@ -20,7 +20,10 @@
 				
 			</view>
 			<view class="project-list">
-				<view v-for="(item, index) in projectList" :key="item.id">
+				<view v-if="projectList.length === 0">
+					<text>你还未学习课程~</text>
+				</view>
+				<view v-for="(item, index) in projectList" :key="item.id" v-else>
 					<projectItem
 					:projectItem="item"
 					:pid="index+1"

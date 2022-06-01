@@ -39,18 +39,11 @@
           transform-origin: center center;
 }
 .uni-badge.data-v-6d6c939a {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   overflow: hidden;
   box-sizing: border-box;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  justify-content: center;
+  flex-direction: row;
   height: 20px;
   line-height: 18px;
   color: #fff;
