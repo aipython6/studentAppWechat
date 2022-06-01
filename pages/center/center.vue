@@ -31,19 +31,28 @@
 						<view><u--text text="同学学习了课程" size="16" type="primary"></u--text></view>
 					</view>
 					<view>
-						<view><u--text text="当前已有5523位" size="16" type="error"></u--text></view>
+						<view><u--text :text="'当前已有' + exerciseNum +'位'" size="16" type="error"></u--text></view>
 						<view><u--text text="同学在做题" size="16" type="error"></u--text></view>
 					</view>
 				</view>
 		</view>
 		<uni-section title="今日战果" type="line" padding />
 			<view v-if="!hasLogin">
-				<text @tap="login">你还未登录,点击登录查看今日学习战果</text>
+				<text @tap="login">你还未登录,点击登录查看今日战果~</text>
 			</view>
 			<view v-else>
-				<view v-if="todayStudyList.length === 0">你今日还未学习课程~</view>
-				<view class="result-list" v-for="item,index in todayStudyList" :key='index' v-else>
-					<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" @gotoProjectList="gotoProjectList" />
+				<u-tabs :list="tabs" :current="current" lineColor="#f56c6c" @change="change" />
+				<view v-if="current === 0">
+					<view v-if="todayStudyList.length === 0">你今日还未学习课程~</view>
+					<view class="result-list" v-for="item,index in todayStudyList" :key='index' v-else>
+						<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" @gotoProjectList="gotoProjectList" />
+					</view>
+				</view>
+				<view v-else-if="current === 1">
+					<view v-if="todayExerciseList.length === 0">你今日还未做题~</view>
+					<view class="result-list" v-for="item,index in todayExerciseList" :key='index' v-else>
+						<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" @gotoProjectList="gotoProjectList" />
+					</view>
 				</view>
 			</view>
 	</view>
@@ -53,31 +62,42 @@
 	import boxItem from '../project/projectListItem/boxItem.vue'
 	import projectStudy from '../../components/myComponents/center/project_study/projectStudy.vue'
 	import { all_images } from '@/api/images/images.js'
-	import { getStudentNumFromStudyProject, getTodayStudyProject } from '@/api/project/edit_project.js'
+	import { getStudentNumFromStudyProject, getTodayStudyProject, getTodayExerciseList } from '@/api/project/edit_project.js'
+	import { getStudentNumFromExerciseProject } from '@/api/project/exercise.js'
 	import { mapGetters } from 'vuex'
 	export default {
 		components: { projectStudy, boxItem },
 		data() {
 			return {
+				tabs: [{ name: '今日学习' }, { name: '今日练习' }],
+				current: 0,
 				swiperList: [],
 				projectList: [],
 				num: '',
-				todayStudyList: []
+				todayStudyList: [],
+				todayExerciseList: [],
+				exerciseNum: ''
 			}
 		},
 		onShow() {
 			this.getTodayStudyProject()
+			this.getTodayExerciseList()
 		},
 		onLoad() {
 			this.allImages()
 			this.allProjects()
 			this.getStudentNumFromStudyProject()
-			this.getTodayStudyProject()
+			this.getStudentNumFromExerciseProject()
+			// this.getTodayStudyProject()
+			// this.getTodayExerciseList()
 		},
 		computed: {
 			...mapGetters(['hasLogin'])
 		},
 		methods: {
+			change(obj) {
+				this.current = obj.index === 0 ? 0 : 1
+			},
 			allImages() {
 				all_images({ type: 0 }).then(res => {
 					const { content } = res.data
@@ -121,6 +141,7 @@
 									// 登录成功后,立即获取用户信息
 									this.$store.dispatch('GetInfo', result.openid).then(result1 => {
 										that.getTodayStudyProject()
+										that.getTodayExerciseList()
 									})
 								})
 							}
@@ -134,6 +155,19 @@
 					const { content } = res.data
 					this.todayStudyList = content
 				})	
+			},
+			getTodayExerciseList() {
+				getTodayExerciseList().then(res => {
+					const { content } = res.data
+					this.todayExerciseList = content
+				})
+			},
+			// 获取已做题的学生数量
+			getStudentNumFromExerciseProject() {
+				getStudentNumFromExerciseProject().then(res => {
+					const { num } = res.data
+					this.exerciseNum = num
+				})
 			},
 			// 点击课程跳转
 			gotoProjectList({ name, sid }) {

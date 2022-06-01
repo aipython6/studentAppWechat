@@ -1,21 +1,31 @@
 import request from '@/utils/request.js'
 
-export function setExerciseRecord() {
+export function setExerciseRecord(data) {
 	return request({
 		url: 'api/student/setExerciseRecord',
-		method: 'GET',
+		method: 'POST',
+		data: data
 	})
 }
-export function getExerciseRecord() {
+export function getExerciseRecord(data) {
 	return request({
 		url: 'api/student/getExerciseRecord',
 		method: 'GET',
+		data: data
 	})
 }
 
-export function updateExerciseRecord() {
+export function updateExerciseRecord(data) {
 	return request({
 		url: 'api/student/updateExerciseRecord',
+		method: 'POST',
+		data: data
+	})
+}
+
+export function getStudentNumFromExerciseProject() {
+	return request({
+		url: 'api/student/getStudentNumFromExerciseProject',
 		method: 'GET',
 	})
 }

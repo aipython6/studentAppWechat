@@ -77,10 +77,18 @@ export function getStudentNumFromStudyProject() {
 	})
 }
 
-// 根据openid今日战果数据
+// 根据openid今日战果课程学习数据
 export function getTodayStudyProject() {
 	return request({
 		url: 'api/student/getTodayStudyProject',
+		method: 'GET',
+	})
+}
+
+// 根据openid获取今日做题数据
+export function getTodayExerciseList() {
+	return request({
+		url: 'api/student/getTodayExerciseList',
 		method: 'GET',
 	})
 }
