@@ -1,7 +1,7 @@
 <template>
 	<!-- 显示每个课本详情的组件 -->
 	<view class="book-item">
-		<view class="main" @tap="toBookDetail(bookItem.bid, bookItem.name)">
+		<view class="main" @tap="toBookDetail(bookItem.bid, bookItem.name, bookItem.clickNum)">
 			<view class="img">
 				<u--image :showLoading="true" :src="bookItem.src" width="80px" height="100px" radius="8" />
 			</view>
@@ -31,9 +31,9 @@
 		},
 		methods: {
 			// 根据id查询对应的课本,展示课本详情和可进行学习的页面
-			toBookDetail(bid, name) {
+			toBookDetail(bid, name, clickNum) {
 				uni.navigateTo({
-					url: `../../book/index?bid=${bid}&name=${name}`
+					url: `../../book/index?bid=${bid}&name=${name}&clickNum=${clickNum}`
 				})
 			}
 		}

@@ -6,7 +6,7 @@
 			<view class="first" v-for="item, index in obj.list" :key="index">
 				<view class="second">({{index+1}})---{{ item.label }}</view>
 				<view class="third" v-for="subitem, subindex in item.children" :key="subindex">
-					<view class="fourth" @tap="toStudyPage(subitem.id, subitem.label, obj.pid)">{{ subitem.label}}</view>
+					<view class="fourth" @tap="toStudyPage(subitem.id, subitem.label, obj.pname, item.label, obj.pid)">{{ subitem.label}}</view>
 				</view>
 				<u-divider />
 			</view>
@@ -57,8 +57,9 @@
 				})
 			},
 			// 跳转到最终学习的页面
-			toStudyPage(id, secondName,pid) {
-				const url =  `./studyPage?bid=${id}&name=${secondName}&pid=${pid}`
+			toStudyPage(id, secondName,pname, firstName, pid) {
+				const fullName = pname + '(' + firstName + ')'
+				const url =  `./studyPage?bid=${id}&name=${secondName}&pid=${pid}&fullName=${fullName}`
 				if (!this.hasLogin) {
 					this.login(url)
 				} else {

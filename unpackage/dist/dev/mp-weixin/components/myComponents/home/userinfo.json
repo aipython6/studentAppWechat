@@ -1,9 +1,9 @@
 {
-  "component": true,
   "usingComponents": {
     "uni-section": "/components/uni/uni-section/uni-section",
     "u-avatar": "/uview/components/u-avatar/u-avatar",
     "u-badge": "/uview/components/u-badge/u-badge",
     "u-divider": "/uview/components/u-divider/u-divider"
-  }
+  },
+  "component": true
 }

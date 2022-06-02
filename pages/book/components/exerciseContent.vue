@@ -6,7 +6,7 @@
 			<view class="first" v-for="item, index in obj.list" :key="index">
 				<view class="second">({{index+1}})---{{ item.label }}</view>
 				<view class="third" v-for="subitem, subindex in item.children" :key="subindex">
-					<view class="fourth" @tap="toExercisePage(subitem.id, subitem.label, obj.pname, item.name, obj.pid)">{{ subitem.label}}</view>
+					<view class="fourth" @tap="toExercisePage(subitem.id, subitem.label, obj.pname, item.label, obj.pid)">{{ subitem.label}}</view>
 				</view>
 				<u-divider />
 			</view>

@@ -1,18 +1,22 @@
 <template>
 	<view class="container">
 		<view class="box">
-			<u--image :src="img" radius="10" :fade="true" duration="450" height="80" width="80"></u--image>
-			<view class="name-info">
+			<u--image :src="item.img" radius="10" :fade="true" duration="450" height="80" width="80" />
+			<view class="name-info" @tap='updateClickNum(item.id, item.clickNum)'>
 				<view class="name">
-					<text>{{ name }}</text>
+					<text>{{ item.name }}</text>
 				</view>
 				<view class="url">
-					<u-link :href="url" :text="url" :under-line="true" mpTips="链接已复制"></u-link>
+					<u-link
+					:href="item.url"
+					:text="item.url"
+					:under-line="true"
+					mpTips="链接已复制" />
 				</view>
 				<view class="info">
-					<text>地区: {{ region }}</text>
-					<text>类别: {{ type }}</text>
-					<text style="color: #fd1d1d;">热度: {{ clickNum }}</text>
+					<text>地区: {{ item.region }}</text>
+					<text>类别: {{ item.type }}</text>
+					<text style="color: #fd1d1d;">热度: {{ item.clickNum }}</text>
 				</view>
 			</view>
 		</view>
@@ -23,45 +27,17 @@
 	export default {
 		name: 'hotWebsite',
 		props: {
-			name: {
-				type: String,
+			item: {
+				type: Object,
 				default: () => {
-					return ''
+					return {}
 				}
 			},
-			img: {
-				type: String,
-				default: () => {
-					return 'https://cdn.uviewui.com/uview/album/1.jpg'
-				}
-			},
-			region: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			clickNum: {
-				type: Number,
-				default: () => {
-					return ''
-				}
-			},
-			type: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			},
-			url: {
-				type: String,
-				default: () => {
-					return ''
-				}
-			}
 		},
 		methods: {
-			
+			updateClickNum(id, clickNum) {
+				this.$emit('updateClickNum', { id: id, clickNum: clickNum })
+			}
 		}
 	}
 </script>

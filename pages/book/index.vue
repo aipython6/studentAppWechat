@@ -13,7 +13,7 @@
 </template>
 
 <script>
-	import { getBookInfoBybid, getBookChapterList } from '@/api/project/project.js'
+	import { getBookInfoBybid, getBookChapterList, updateClickNum } from '@/api/project/project.js'
 	import { collectBook, getCollectOneBook } from '@/api/project/edit_project.js'
 	import { mapGetters } from 'vuex'
 	import bookInfo from './components/bookInfo.vue'
@@ -50,8 +50,15 @@
 			this.getBookChapterList({ bid: obj.bid })
 			// 查询课程是否收藏
 			this.getCollectOneBook({ bid: obj.bid })
+			// 更新clickNum
+			this.updateClickNum({ bid: obj.bid, clickNum: obj.clickNum })
 		},
 		methods: {
+			// 没进入一次该页面,则浏览次数+1（即clickNum++）
+			updateClickNum(data) {
+				updateClickNum(data).then(res => {})
+			},
+			
 			change(obj) {
 				this.current = obj.index === 0 ? 0 : 1
 			},

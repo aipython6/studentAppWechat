@@ -35,7 +35,7 @@
 			<view class="hot-website">
 				<uni-section title="热门考试网站" type="line" padding color="#fd1d1d"></uni-section>
 				<view class="website-content-list" v-for="item,index in showWebsiteList" :key="item.id">
-					<hotWebsite :name="item.name" :region="item.region" :type="item.type" :clickNum="item.clickNum" :url="item.url" :img="item.img" />
+					<hotWebsite :item="item" @updateClickNum="updateClickNum" />
 					<u-gap height="7" bgColor="#F2F6FC" v-if="params.size % 5 !== 0"></u-gap>
 				</view>
 				<view class="website-pages">
@@ -61,7 +61,7 @@
 </template>
 
 <script>
-	import { all_website, all_website_byName, all_region_website } from '@/api/website/website.js'
+	import { all_website, all_website_byName, all_region_website, updateClickNum } from '@/api/website/website.js'
 	import { get_nocice } from '@/api/notice/notice.js'
 	import { all_images } from '@/api/images/images.js'
 	import hotWebsite from '../../components/myComponents/hotWebsite/index.vue'
@@ -125,6 +125,10 @@
 					const { content } = res.data
 					this.regionList = content
 				})
+			},
+			// 只要用户复制一次,则对clickNum++
+			updateClickNum({ id, clickNum }) {
+				updateClickNum({ id: id, clickNum: clickNum }).then(res => {})
 			}
 		}
 	}

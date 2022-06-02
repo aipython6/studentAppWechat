@@ -58,7 +58,7 @@
 		
 		onLoad(obj) {
 			uni.setNavigationBarTitle({
-				title: obj.name
+				title: obj.fullName
 			})
 			this.getStudyProjectRecord({ pid: obj.pid })
 			this.start_time = new Date()

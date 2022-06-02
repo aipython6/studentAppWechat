@@ -22,3 +22,11 @@ export function all_region_website() {
 		method: 'GET'
 	})
 }
+
+export function updateClickNum(data) {
+	return request({
+		url: 'api/wx/website/updateClickNum',
+		method: 'POST',
+		data: data
+	})
+}

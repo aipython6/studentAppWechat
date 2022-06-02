@@ -1,5 +1,14 @@
 import request from '@/utils/request.js'
 // 该文件下的所有访问都是查询
+
+export function updateClickNum(data) {
+	return request({
+		url: 'api/study/updateClickNum',
+		method: 'POST',
+		data: data
+	})
+}
+
 export function getTopAndSecondProjec() {
 	return request({
 		url: 'api/study/getTopAndSecondProjec',

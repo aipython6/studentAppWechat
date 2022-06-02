@@ -1,7 +1,7 @@
 {
+  "component": true,
   "usingComponents": {
     "u-cell": "/uview/components/u-cell/u-cell",
     "u-line": "/uview/components/u-line/u-line"
-  },
-  "component": true
+  }
 }
