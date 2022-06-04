@@ -165,6 +165,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
 var _default2 =
 {
   name: 'hotWebsite',
@@ -179,6 +180,10 @@ var _default2 =
   methods: {
     updateClickNum: function updateClickNum(id, clickNum) {
       this.$emit('updateClickNum', { id: id, clickNum: clickNum });
+    },
+    change: function change() {
+      console.log('click');
+      this.$emit('change');
     } } };exports.default = _default2;
 
 /***/ }),

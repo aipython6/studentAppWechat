@@ -204,7 +204,7 @@ var _default2 =
   },
   methods: {
     cancel: function cancel(bid) {
-      this.$emit('cancel', { bid: bid });
+      this.$emit('cancel', { bid: bid, show: true });
     },
     toBookDetail: function toBookDetail(bid, bookName) {
       uni.navigateTo({

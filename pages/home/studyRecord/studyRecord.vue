@@ -53,19 +53,27 @@
 				id: '',
 				// 根据课程名称搜索
 				projectName: '',
-				projectList: []
+				projectList: [],
+				tempList: []
 			}
 		},
 		onLoad() {
 			this.getStudyProjectList()
 		},
 		methods: {
-			search(e) {},
+			search(value) {
+				if (value) {
+					this.projectList = this.projectList.filter(item => item.name.indexOf(value) !== -1)
+				} else {
+					this.projectList = this.tempList
+				}
+			},
 			// 获取已学习的课程列表,根据openid获取即可
 			getStudyProjectList() {
 				getStudyProjectList().then(res => {
 					const { content } = res.data
 					this.projectList = content
+					this.tempList = content
 				})
 			},
 			cancel({ id, show }) {

@@ -214,19 +214,27 @@ var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 150
       id: '',
       // 根据课程名称搜索
       projectName: '',
-      projectList: [] };
+      projectList: [],
+      tempList: [] };
 
   },
   onLoad: function onLoad() {
     this.getStudyProjectList();
   },
   methods: {
-    search: function search(e) {},
+    search: function search(value) {
+      if (value) {
+        this.projectList = this.projectList.filter(function (item) {return item.name.indexOf(value) !== -1;});
+      } else {
+        this.projectList = this.tempList;
+      }
+    },
     // 获取已学习的课程列表,根据openid获取即可
     getStudyProjectList: function getStudyProjectList() {var _this = this;
       (0, _edit_project.getStudyProjectList)().then(function (res) {var
         content = res.data.content;
         _this.projectList = content;
+        _this.tempList = content;
       });
     },
     cancel: function cancel(_ref) {var id = _ref.id,show = _ref.show;

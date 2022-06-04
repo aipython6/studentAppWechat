@@ -31,10 +31,7 @@
 .container .center .item.data-v-701c12e5 {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-}
-.container .center .item .link.data-v-701c12e5 {
-  margin-left: 10rpx !important;
+  justify-content: space-between;
 }
 .container .center .item .text.data-v-701c12e5 {
   color: #F56C6C;

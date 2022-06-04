@@ -40,7 +40,9 @@
 				"style" :                                                                                    
 				{
 					"navigationBarTitleText": "考试网站",
-					"enablePullDownRefresh": false
+					"enablePullDownRefresh": false,
+					"onReachBottomDistance": 150,
+					"enablePullDownRefresh": true
 				}
 			},
 			

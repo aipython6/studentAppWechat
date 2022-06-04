@@ -45,7 +45,7 @@
   font-size: 25rpx;
 }
 .container .box .name-info .info.data-v-35d61173 {
-  width: 400rpx;
+  width: 500rpx;
   display: flex;
   justify-content: space-between;
 }

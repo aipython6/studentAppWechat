@@ -25,6 +25,12 @@
 /* 透明度 */
 /* 文章场景相关 */
 /* nview的配置 */
+.main {
+  display: flex;
+  justify-content: start;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 .main .box {
   margin-bottom: 20rpx;
   width: 100px;

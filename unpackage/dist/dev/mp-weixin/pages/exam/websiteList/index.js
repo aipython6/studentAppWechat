@@ -104,8 +104,8 @@ try {
     uCollapseItem: function() {
       return Promise.all(/*! import() | uview/components/u-collapse-item/u-collapse-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-collapse-item/u-collapse-item")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-collapse-item/u-collapse-item.vue */ 527))
     },
-    uAvatar: function() {
-      return Promise.all(/*! import() | uview/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-avatar/u-avatar.vue */ 535))
+    "u-Image": function() {
+      return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 764))
     },
     uLink: function() {
       return Promise.all(/*! import() | uview/components/u-link/u-link */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-link/u-link")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-link/u-link.vue */ 543))
@@ -192,9 +192,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
-
-
 var _website = __webpack_require__(/*! @/api/website/website.js */ 166); //
 //
 //
@@ -218,10 +215,27 @@ var _website = __webpack_require__(/*! @/api/website/website.js */ 166); //
 //
 //
 //
-//
-//
-//
-var _default = { data: function data() {return { status: '加载更多', loadingText: '努力加载中', loadmoreText: '轻轻上拉', nomoreText: '已经到底了', page: 1, keyword: '', websiteList: [] };}, onLoad: function onLoad(obj) {var name = obj.name,id = obj.id;this.getWebsiteList(name);}, methods: { scrolltolower: function scrolltolower(obj) {}, getWebsiteList: function getWebsiteList(name) {var _this = this;(0, _website.all_website)().then(function (res) {var content = res.data.content;_this.websiteList = content.filter(function (item, index) {return item.region === name;});});},
+var _default = { data: function data() {return { status: '加载更多', loadingText: '努力加载中', loadmoreText: '轻轻上拉', nomoreText: '已经到底了', listQuery: { page: 1, size: 10 }, keyword: '', websiteList: [], name: '', isLoadMore: false };}, onLoad: function onLoad(obj) {var name = obj.name,id = obj.id;this.name = name;this.getWebsiteList(name);}, onReachBottom: function onReachBottom() {console.log('bottom');this.listQuery.page += 1;this.getWebsiteList(this.name);
+  },
+  methods: {
+    getWebsiteList: function getWebsiteList(name) {var _this = this;
+      (0, _website.all_website)(this.listQuery).then(function (res) {var
+        content = res.data.content;
+        if (content.length > 0) {
+          _this.websiteList = _this.websiteList.concat(content);
+          _this.websiteList = content.filter(function (item, index) {return item.region === name;});
+          if (content.length < _this.listQuery.size) {
+            _this.isLoadMore = true;
+            _this.status = '没有更多数据了~';
+          } else {
+            _this.isLoadMore = false;
+          }
+        } else {
+          _this.isLoadMore = true;
+          _this.status = '没有更多数据了~';
+        }
+      });
+    },
     search: function search(value) {var _this2 = this;
       var temp = { name: value };
       (0, _website.all_website_byName)(temp).then(function (res) {var

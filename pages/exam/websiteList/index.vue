@@ -8,19 +8,16 @@
 			<u-collapse accordion>
 					<u-collapse-item v-for="item,index in websiteList" :key="item.id" :title="item.name" :border="false">
 							<view class="item">
-								<u-avatar :src="item.img" fontSize="22"></u-avatar>
+								<u--image :src="item.img" radius="10" :fade="true" duration="450" height="60" width="60" mode="aspectFit" />
 								<u-link class="link" :href="item.url" :text="item.name" mpTips="链接已复制"></u-link>
 								<text class="text">热度: {{ item.clickNum }}</text>
 							</view>
 					</u-collapse-item>
 			</u-collapse>
 		</view>
-		<u-loadmore
-			:status="status" 
-			:loading-text="loadingText" 
-			:loadmore-text="loadmoreText" 
-			:nomore-text="nomoreText"
-		/>
+		<view v-if="isLoadMore">
+			<u-loadmore :status="status" />
+		</view>
 	</view>
 </template>
 
@@ -33,23 +30,40 @@
 				loadingText: '努力加载中',
 				loadmoreText: '轻轻上拉',
 				nomoreText: '已经到底了',
-				page: 1,
+				listQuery: { page: 1, size: 10 },
 				keyword: '',
-				websiteList: []
+				websiteList: [],
+				name: '',
+				isLoadMore: false
 			}
 		},
 		onLoad(obj) {
 			const { name, id } = obj
+			this.name = name
 			this.getWebsiteList(name)
 		},
+		onReachBottom() {
+			console.log('bottom')
+			this.listQuery.page += 1
+			this.getWebsiteList(this.name)
+		},
 		methods: {
-			scrolltolower(obj) {
-				
-			},
 			getWebsiteList(name) {
-				all_website().then(res => {
+				all_website(this.listQuery).then(res => {
 					const { content } = res.data
-					this.websiteList = content.filter((item, index) => item.region === name)
+					if (content.length > 0) {
+						this.websiteList = this.websiteList.concat(content)
+						this.websiteList = content.filter((item, index) => item.region === name)
+						if (content.length < this.listQuery.size) {
+							this.isLoadMore = true
+							this.status = '没有更多数据了~'
+						} else {
+							this.isLoadMore = false
+						}
+					} else {
+						this.isLoadMore = true
+						this.status = '没有更多数据了~'
+					}
 				})
 			},
 			search(value) {
@@ -72,10 +86,7 @@
 			.item {
 				display: flex;
 				align-items: center;
-				justify-content: space-around;
-				.link {
-					margin-left: 10rpx !important;
-				}
+				justify-content: space-between;
 				.text {
 					color: #F56C6C;
 				}

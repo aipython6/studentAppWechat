@@ -40,7 +40,7 @@
 				</view>
 				<view class="website-pages">
 					<uni-pagination
-					:total="showWebsiteList.length"
+					:total="total"
 					:current="params.page"
 					:pageSize="params.size"
 					title="标题文字"
@@ -129,7 +129,7 @@
 			// 只要用户复制一次,则对clickNum++
 			updateClickNum({ id, clickNum }) {
 				updateClickNum({ id: id, clickNum: clickNum }).then(res => {})
-			}
+			},
 		}
 	}
 </script>

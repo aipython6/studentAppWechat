@@ -36,9 +36,7 @@
   display: flex;
   justify-content: space-between;
 }
-.container .result-list.data-v-2fc1a426 {
-  margin: 0 15rpx;
-  display: flex;
-  justify-content: space-between;
+.container .show-tabs .tabs1.data-v-2fc1a426, .container .show-tabs .tabs2.data-v-2fc1a426 {
+  margin-top: 20rpx;
 }
 

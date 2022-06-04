@@ -40,15 +40,15 @@
 			<view v-if="!hasLogin">
 				<text @tap="login">你还未登录,点击登录查看今日战果~</text>
 			</view>
-			<view v-else>
+			<view v-else class="show-tabs">
 				<u-tabs :list="tabs" :current="current" lineColor="#f56c6c" @change="change" />
-				<view v-if="current === 0">
+				<view v-if="current === 0" class="tabs1">
 					<view v-if="todayStudyList.length === 0">你今日还未学习课程~</view>
 					<view class="result-list" v-for="item,index in todayStudyList" :key='index' v-else>
 						<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" @gotoProjectList="gotoProjectList" />
 					</view>
 				</view>
-				<view v-else-if="current === 1">
+				<view v-else-if="current === 1" class="tabs2">
 					<view v-if="todayExerciseList.length === 0">你今日还未做题~</view>
 					<view class="result-list" v-for="item,index in todayExerciseList" :key='index' v-else>
 						<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" @gotoProjectList="gotoProjectList" />
@@ -60,7 +60,7 @@
 
 <script>
 	import boxItem from '../project/projectListItem/boxItem.vue'
-	import projectStudy from '../../components/myComponents/center/project_study/projectStudy.vue'
+	import projectStudy from '@/components/myComponents/center/project_study/projectStudy.vue'
 	import { all_images } from '@/api/images/images.js'
 	import { getStudentNumFromStudyProject, getTodayStudyProject, getTodayExerciseList } from '@/api/project/edit_project.js'
 	import { getStudentNumFromExerciseProject } from '@/api/project/exercise.js'
@@ -198,10 +198,10 @@
 				justify-content: space-between;
 			}
 		}
-		.result-list {
-			margin: 0 15rpx;
-			display: flex;
-			justify-content: space-between;
+		.show-tabs {
+			.tabs1, .tabs2 {
+				margin-top: 20rpx;
+			}
 		}
 	}
 </style>

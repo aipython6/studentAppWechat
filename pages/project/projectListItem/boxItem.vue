@@ -40,6 +40,10 @@
 
 <style lang="scss">
 	.main {
+			display: flex;
+			justify-content: start;
+			flex-wrap: nowrap;
+			align-items: center;
 			.box {
 				margin-bottom: 20rpx;
 				width: 100px;

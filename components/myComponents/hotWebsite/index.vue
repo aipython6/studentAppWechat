@@ -1,13 +1,14 @@
 <template>
 	<view class="container">
 		<view class="box">
-			<u--image :src="item.img" radius="10" :fade="true" duration="450" height="80" width="80" />
+			<u--image :src="item.img" radius="10" :fade="true" duration="450" height="60" width="60" mode="aspectFit" />
 			<view class="name-info" @tap='updateClickNum(item.id, item.clickNum)'>
 				<view class="name">
 					<text>{{ item.name }}</text>
 				</view>
 				<view class="url">
 					<u-link
+					fontSize="11"
 					:href="item.url"
 					:text="item.url"
 					:under-line="true"
@@ -37,6 +38,10 @@
 		methods: {
 			updateClickNum(id, clickNum) {
 				this.$emit('updateClickNum', { id: id, clickNum: clickNum })
+			},
+			change() {
+				console.log('click');
+				this.$emit('change')
 			}
 		}
 	}
@@ -60,11 +65,8 @@
 				justify-content: space-around;
 				color: #808080;
 				font-size: 25rpx;
-				.name {
-					
-				}
 				.info {
-					width: 400rpx;
+					width: 500rpx;
 					display: flex;
 					justify-content: space-between;
 				}

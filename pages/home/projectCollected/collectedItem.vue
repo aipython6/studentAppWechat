@@ -53,7 +53,7 @@
 		},
 		methods: {
 			cancel(bid) {
-				this.$emit('cancel', { bid: bid })
+				this.$emit('cancel', { bid: bid, show: true })
 			},
 			toBookDetail(bid, bookName) {
 				uni.navigateTo({
