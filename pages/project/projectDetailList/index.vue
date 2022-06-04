@@ -27,7 +27,8 @@
 			return {
 				projectName: '',
 				bookName: '',
-				bookList: []
+				bookList: [],
+				tempList: []
 			}
 		},
 		onLoad(obj) {
@@ -39,12 +40,17 @@
 		},
 		methods: {
 			search(value) {
-				this.bookList = this.bookList.filter((item, index) => item.name === value)
+				if (value) {
+					this.bookList = this.bookList.filter(item => item.name.indexOf(value) !== -1)
+				} else {
+					this.bookList = this.tempList
+				}
 			},
 			getBookList(data) {
 				getBookList(data).then(res => {
 					const { content } = res.data
 					this.bookList = content
+					this.tempList = content
 				})
 			}
 		}

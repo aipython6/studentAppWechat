@@ -11,7 +11,7 @@
 		v-model="bookName" 
 		@search="search">
 		</u-search>
-		<uni-section :title="projectName" type="line" padding></uni-section>
+		<uni-section :title="projectName" type="line" padding />
 		<bookBox :projectList="projectList" />
 	</view>
 </template>
@@ -25,7 +25,8 @@
 			return {
 				projectName: '',
 				bookName: '',
-				projectList:[]
+				projectList:[],
+				tempList: []
 			}
 		},
 		onLoad(obj) {
@@ -37,12 +38,17 @@
 		},
 		methods: {
 			search(value) {
-				this.projectList = this.projectList.filter((item, index) => item.name === value)
+				if (value) {
+					this.projectList = this.projectList.filter(item => item.name.indexOf(value) !== -1)
+				} else {
+					this.projectList = this.tempList
+				}
 			},
 			getBookTypeList(data) {
 				getBookTypeList(data).then(res => {
 					const { content } = res.data
 					this.projectList = content
+					this.tempList = content
 				})
 			}
 		}

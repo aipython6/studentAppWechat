@@ -29,7 +29,7 @@
 		},
 		methods: {
 			deletePic(event) {
-				this[`fileList${event.name}`].splice(event.index, 1)
+					this.fileList = []
 				},
 				// 新增图片
 				async afterRead(event) {

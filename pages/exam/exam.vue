@@ -36,11 +36,11 @@
 				<uni-section title="热门考试网站" type="line" padding color="#fd1d1d"></uni-section>
 				<view class="website-content-list" v-for="item,index in showWebsiteList" :key="item.id">
 					<hotWebsite :item="item" @updateClickNum="updateClickNum" />
-					<u-gap height="7" bgColor="#F2F6FC" v-if="params.size % 5 !== 0"></u-gap>
+					<u-gap height="7" bgColor="#F2F6FC" v-if="params.size % 5 !== 0" />
 				</view>
 				<view class="website-pages">
 					<uni-pagination
-					:total="websiteList.length"
+					:total="showWebsiteList.length"
 					:current="params.page"
 					:pageSize="params.size"
 					title="标题文字"
