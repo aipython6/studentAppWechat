@@ -1,7 +1,7 @@
 <template>
 	<!-- 个人信息设置页面 -->
 	<view class="container">
-		<uni-section title="个人信息设置" type="line" padding></uni-section>
+		<uni-section title="个人信息设置" type="line" padding />
 		<view class="userinfo">
 			<u--form
 					labelPosition="left"
@@ -88,8 +88,8 @@
 					<u--input v-model="model1.infoForm.professional" border="none"></u--input>
 				</u-form-item>
 				<view class="btns">
-					<u-button type="error" text="重置" @click="reset" />
-					<u-button type="primary" text="提交" @click="submit" />
+					<button type="primary" @click="submit">提交</button>
+					<button type="default" @click="reset">重置</button>
 				</view>
 			</u--form>
 			<!-- 性别选择 -->

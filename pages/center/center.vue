@@ -27,12 +27,20 @@
 			<uni-section title="大家都在学" type="line" padding></uni-section>
 				<view class="study-list">
 					<view>
-						<view><u--text :text="'当前已有'+ num +'位'" size="16" type="primary"></u--text></view>
-						<view><u--text text="同学学习了课程" size="16" type="primary"></u--text></view>
+						<view>
+						<text>{{ '当前已有'+ num + '位' }}</text>
+						</view>
+						<view>
+							<text>同学学习了课程</text>
+						</view>
 					</view>
 					<view>
-						<view><u--text :text="'当前已有' + exerciseNum +'位'" size="16" type="error"></u--text></view>
-						<view><u--text text="同学在做题" size="16" type="error"></u--text></view>
+						<view>
+							<text>{{ '当前已有' + exerciseNum +'位' }}</text>
+						</view>
+						<view>
+							<text>同学在做题</text>
+						</view>
 					</view>
 				</view>
 		</view>

@@ -1,8 +1,8 @@
 <template>
 	<view class="container">
 		<view class="header">
-			<u--text prefixIcon="baidu" type="primary" text="图片文字识别工具" size="20"></u--text>
-			<u--text prefixIcon="plus" type="primary" text="(请点击下方按钮上传图片)"></u--text>
+			<text>图片文字识别工具</text>
+			<text>(请点击下方按钮上传图片)</text>
 		</view>
 		<u-upload
 				:fileList="fileList"
@@ -13,8 +13,8 @@
 				:maxCount="1"
 			></u-upload>
 			<view class="text">
-				<u--text value="识别的内容"></u--text>
-				<u--textarea v-model="words" placeholder="识别到的内容" :autoHeight="true" />
+				<text>识别的内容</text>
+				<textarea :value="words" auto-height />
 			</view>
 	</view>
 </template>

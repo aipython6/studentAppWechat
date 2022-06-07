@@ -29,9 +29,15 @@
   margin: 20rpx;
 }
 .container .center .item.data-v-701c12e5 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .container .center .item .text.data-v-701c12e5 {
   color: #F56C6C;

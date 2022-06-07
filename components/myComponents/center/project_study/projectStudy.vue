@@ -2,16 +2,16 @@
 	<!-- 课程学习下各个图标的组件 -->
 	<view class="container">
 		<view @tap="toProjectList">
-			<u-avatar size="55" :src="item[0].src"></u-avatar>
-			<u--text :text="item[0].value"></u--text>
+			<u--image :src="item[0].src" width="60px" height="60px" shape="square" />
+			<text>{{ item[0].value }}</text>
 		</view>
 		<view @tap="toProjectCollected">
-			<u-avatar size="55" :src="item[1].src"></u-avatar>
-			<u--text :text="item[1].value"></u--text>
+			<u--image :src="item[1].src" width="60px" height="60px" shape="square" />
+			<text>{{ item[1].value }}</text>
 		</view>
 		<view @tap="toStudyRecord">
-			<u-avatar size="55" :src="item[2].src"></u-avatar>
-			<u--text :text="item[2].value"></u--text>
+			<u--image :src="item[2].src" width="60px" height="60px" shape="square" />
+			<text>{{ item[2].value }}</text>
 		</view>
 	</view>
 </template>

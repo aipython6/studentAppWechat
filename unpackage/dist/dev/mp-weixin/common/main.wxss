@@ -34,6 +34,8 @@
 
 
 
+
+
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -42,6 +44,8 @@
   -webkit-box-orient: vertical !important;
 }
 .u-line-2 {
+
+
 
 
 
@@ -64,6 +68,8 @@
 
 
 
+
+
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -79,6 +85,8 @@
 
 
 
+
+
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -87,6 +95,8 @@
   -webkit-box-orient: vertical !important;
 }
 .u-line-5 {
+
+
 
 
 

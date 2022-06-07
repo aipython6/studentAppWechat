@@ -1,10 +1,10 @@
 <template>
 	<view class="container">
-		<uni-list>
-			<uni-list-item title="设置个人信息" clickable link @click="toSetting"></uni-list-item>
-			<uni-list-item title="学习记录" clickable link @click="toStudyRecord"></uni-list-item>
-			<uni-list-item title="课程收藏" clickable link @click="toProjectCollected"></uni-list-item>
-		</uni-list>
+		<u-cell-group>
+			<u-cell icon="setting" title="个人设置" :clickable="true" :isLink="true" @click="toSetting" />
+			<u-cell icon="grid" title="学习记录" :clickable="true" :isLink="true" @click="toStudyRecord" />
+			<u-cell icon="star-fill" title="课程收藏" :clickable="true" :isLink="true" @click="toProjectCollected" />
+		</u-cell-group>
 	</view>
 </template>
 

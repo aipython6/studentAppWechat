@@ -1,10 +1,10 @@
 <template>
 	<view class="container">
-		<uni-section title="个人基本信息" type="line" padding color="#000000"></uni-section>
+		<uni-section title="个人基本信息" type="line" padding color="#000000" />
 		<view class="userinfo">
 			<view class="avatar">
-				<u-avatar :src="defaultAvatar" size="80" class="avatar" shape="square" v-if="!hasLogin" />
-				<u-avatar :src="userinfo.avatarUrl" size="80" class="avatar" shape="square" v-else />
+				<u--image :src="defaultAvatar" width="70px" height="70px" shape="square" v-if="!hasLogin" />
+				<u--image :src="userinfo.avatarUrl" width="70px" height="70px" shape="square" v-else />
 			</view>
 			<view class="base" v-if="hasLogin">
 				<view class="baseinfo" v-if="user.isFull">

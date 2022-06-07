@@ -5,12 +5,12 @@
     "include": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
-    "enhance": false,
     "postcss": true,
-    "preloadBackgroundData": false,
     "minified": true,
+    "enhance": false,
+    "preloadBackgroundData": false,
     "coverView": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
@@ -30,7 +30,8 @@
     "disableUseStrict": false,
     "useStaticServer": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "minifyWXML": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.1",

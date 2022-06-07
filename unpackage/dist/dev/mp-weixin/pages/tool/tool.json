@@ -2,8 +2,6 @@
   "navigationBarTitleText": "必备工具",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "u--text": "/uview/components/u--text/u--text",
-    "u-upload": "/uview/components/u-upload/u-upload",
-    "u--textarea": "/uview/components/u--textarea/u--textarea"
+    "u-upload": "/uview/components/u-upload/u-upload"
   }
 }

@@ -5,24 +5,20 @@
 				<u-swipe-action-item :options="options" :duration="1000" @click="cancel(projectItem.id)">
 						<view class="swipe-action u-border-top u-border-bottom" @tap="toBookDetail(projectItem.bid, projectItem.name)">
 								<view class="swipe-action__content">
-									<u-row justify="space-between" gutter="10">
-										<u-col span="1"><text style="font-size: 16px;">{{ pid }}.</text></u-col>
-										<u-col span="3">
-											<u--image :src="projectItem.coverImg" radius="10" :fade="true" duration="450" height="80" width="80" />
-										</u-col>
-										<u-col span="8">
-											<view class="line1">
-												<text class="swipe-action__content__text">课程名称: {{ projectItem.name }}</text>
-												<text class="swipe-action__content__text">出版社: {{ projectItem.publishedName }}</text>
-											</view>
-											<view class="line2">
-												<text class="swipe-action__content__text">最近学习: {{ projectItem.temp_end_time }}</text>
-											</view>
-											<view class="line3">
-												<text class="swipe-action__content__text">学习时长: {{ projectItem.study_time }}</text>
-											</view>
-										</u-col>
-									</u-row>
+									<text style="font-size: 16px;">{{ pid }}.</text>
+									<u--image :src="projectItem.coverImg" radius="10" :fade="true" duration="450" height="80" width="80" />
+									<view>
+										<view class="line1">
+											<text class="swipe-action__content__text">课程名称: {{ projectItem.name }}</text>
+											<text class="swipe-action__content__text">出版社: {{ projectItem.publishedName }}</text>
+										</view>
+										<view class="line2">
+											<text class="swipe-action__content__text">最近学习: {{ projectItem.temp_end_time }}</text>
+										</view>
+										<view class="line3">
+											<text class="swipe-action__content__text">学习时长: {{ projectItem.study_time }}</text>
+										</view>
+									</view>
 								</view>
 						</view>
 				</u-swipe-action-item>
@@ -63,7 +59,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.container {
 		.swipe-action {
 				&__content {
