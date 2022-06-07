@@ -26,10 +26,7 @@
 /* 文章场景相关 */
 /* nview的配置 */
 .container.data-v-8b79b3b8 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  justify-content: space-around;
 }
 

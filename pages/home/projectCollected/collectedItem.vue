@@ -4,8 +4,12 @@
 				<u-swipe-action-item :options="options" :duration="1000" @click="cancel(bookItem.bid)">
 						<view class="swipe-action u-border-top u-border-bottom">
 								<view class="swipe-action__content" @tap="toBookDetail(bookItem.bid, bookItem.name)">
-									<text style="font-size: 16px;">{{ pid }}.</text>
-									<u--image :src="bookItem.coverImg" radius="10" :fade="true" duration="450" height="80" width="80" />
+									<view>
+										<text style="font-size: 16px;">{{ pid }}.</text>
+									</view>
+									<view>
+										<u--image :src="bookItem.coverImg" radius="10" :fade="true" duration="450" height="80" width="80" />
+									</view>
 									<view>
 										<view class="line1">
 											<text class="swipe-action__content__text">课程名称: {{ bookItem.name }}</text>
@@ -64,6 +68,9 @@
 	.container {
 		.swipe-action {
 				&__content {
+					display: flex;
+					align-items: center;
+					justify-content: space-around;
 					.line1 {
 						display: flex;
 						flex-direction: column;

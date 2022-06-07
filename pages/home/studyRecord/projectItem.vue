@@ -63,6 +63,9 @@
 	.container {
 		.swipe-action {
 				&__content {
+					display: flex;
+					align-items: center;
+					justify-content: space-around;
 					.line1 {
 						display: flex;
 						flex-direction: column;

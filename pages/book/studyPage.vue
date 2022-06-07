@@ -8,7 +8,7 @@
 		
 		<block v-for="item, index in chapterContentList">
 			<view class="box">
-				<image :src="item.url" mode="widthFix" @click="previewImage(item.ccid)" />
+				<image :src="item.url" mode="widthFix" @click="previewImage(index)" />
 			</view>
 		</block>
 	</view>
@@ -115,7 +115,8 @@
 				let imgList = this.chapterContentList.map(e => e.url)
 				uni.previewImage({
 					current: index,
-					urls: imgList
+					urls: imgList,
+					loop: true
 				})
 			}
 		}

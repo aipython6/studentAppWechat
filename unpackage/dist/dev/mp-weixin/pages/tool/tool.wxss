@@ -29,6 +29,13 @@
   margin: 10px;
 }
 .container .header.data-v-c22717f4 {
+  color: #f1005a;
   margin-bottom: 15px;
+}
+.container .text.data-v-c22717f4 {
+  margin: 20rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 

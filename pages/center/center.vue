@@ -26,7 +26,7 @@
 		<view class="study">
 			<uni-section title="大家都在学" type="line" padding></uni-section>
 				<view class="study-list">
-					<view>
+					<view style="color: #007AFF;">
 						<view>
 						<text>{{ '当前已有'+ num + '位' }}</text>
 						</view>
@@ -34,7 +34,7 @@
 							<text>同学学习了课程</text>
 						</view>
 					</view>
-					<view>
+					<view style="color: #218881;">
 						<view>
 							<text>{{ '当前已有' + exerciseNum +'位' }}</text>
 						</view>
@@ -201,9 +201,9 @@
 		}
 		.study {
 			.study-list {
-				margin: 0 15rpx;
+				margin: 0 25rpx;
 				display: flex;
-				justify-content: space-between;
+				justify-content: space-around;
 			}
 		}
 		.show-tabs {

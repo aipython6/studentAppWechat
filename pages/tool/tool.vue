@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view class="header">
-			<text>图片文字识别工具</text>
+			<text>1.图片文字识别工具</text>
 			<text>(请点击下方按钮上传图片)</text>
 		</view>
 		<u-upload
@@ -12,9 +12,9 @@
 				multiple
 				:maxCount="1"
 			></u-upload>
+			<view style="color: #2979FF;">识别到的内容</view>
 			<view class="text">
-				<text>识别的内容</text>
-				<textarea :value="words" auto-height />
+				{{ words }}
 			</view>
 	</view>
 </template>
@@ -57,7 +57,14 @@
 	.container {
 		margin: 10px;
 		.header {
+			color: #f1005a;
 			margin-bottom: 15px;
+		}
+		.text {
+			margin: 20rpx;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
 		}
 	}
 </style>
