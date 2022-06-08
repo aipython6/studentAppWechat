@@ -1,7 +1,7 @@
 {
     "name" : "studentAppWechat",
-    "appid" : "",
-    "description" : "",
+    "appid" : "__UNI__ECAE7BC",
+    "description" : "学生小程序应用微信端",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
@@ -58,9 +58,10 @@
             "minified" : true
         },
         "usingComponents" : true,
-				"optimization":{
-				"subPackages":true //是否启用分包优化
-				}
+        "optimization" : {
+            "subPackages" : true //是否启用分包优化
+        },
+        "permission" : {}
     },
     "mp-alipay" : {
         "usingComponents" : true

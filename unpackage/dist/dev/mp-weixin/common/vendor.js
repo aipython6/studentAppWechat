@@ -10155,7 +10155,8 @@ function editUserinfo(data) {
 var _index = _interopRequireDefault(__webpack_require__(/*! @/store/index */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 function request(obj) {
   return new Promise(function (resolve, reject) {
-    var url = 'http://localhost:8090/' + obj.url;
+    // const url = 'http://localhost:8090/' + obj.url
+    var url = 'https://www.and2ui.cn:8090/' + obj.url;
     var method = obj.method || 'GET';
     var data = obj.data;
     var token = (0, _auth.getToken)();

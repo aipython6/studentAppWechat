@@ -195,7 +195,8 @@ var _default =
     uploadFilePromise: function uploadFilePromise(url) {
       var that = this;
       var a = uni.uploadFile({
-        url: 'http://localhost:8090/api/tool/upload',
+        // url: 'http://localhost:8090/api/tool/upload',
+        url: 'https://www.and2ui.cn:8090/api/tool/upload',
         filePath: url,
         name: 'file',
         success: function success(res) {var _JSON$parse =
