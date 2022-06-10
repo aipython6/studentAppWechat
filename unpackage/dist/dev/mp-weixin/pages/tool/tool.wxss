@@ -34,8 +34,13 @@
 }
 .container .text.data-v-c22717f4 {
   margin: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 

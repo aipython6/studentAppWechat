@@ -26,15 +26,27 @@
 /* 文章场景相关 */
 /* nview的配置 */
 .container .swipe-action__content.data-v-db52fe00 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
   padding: 25rpx 10rpx;
 }
 .container .swipe-action__content .line1.data-v-db52fe00 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .container .swipe-action__content__text.data-v-db52fe00 {
   font-size: 14px;

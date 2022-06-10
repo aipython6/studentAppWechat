@@ -2,8 +2,8 @@ import { getToken, getOpenid } from '@/utils/auth'
 import store from '@/store/index'
 function request(obj) {
 	return new Promise((resolve, reject) => {
-		// const url = 'http://localhost:8090/' + obj.url
-		const url = 'https://www.and2ui.cn:8090/' + obj.url
+		const url = 'http://localhost:8090/' + obj.url
+		// const url = 'https://www.and2ui.cn:8090/' + obj.url
 		const method = obj.method || 'GET'
 		const data = obj.data
 		const token = getToken()

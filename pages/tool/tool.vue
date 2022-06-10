@@ -40,8 +40,8 @@
 				uploadFilePromise(url) {
 					const that = this
 					let a = uni.uploadFile({
-						// url: 'http://localhost:8090/api/tool/upload',
-						url: 'https://www.and2ui.cn:8090/api/tool/upload',
+						url: 'http://localhost:8090/api/tool/upload',
+						// url: 'https://www.and2ui.cn:8090/api/tool/upload',
 						filePath: url,
 						name: 'file',
 						success: (res) => {

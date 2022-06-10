@@ -26,13 +26,25 @@
 /* 文章场景相关 */
 /* nview的配置 */
 view.data-v-e85ba00e, scroll-view.data-v-e85ba00e, swiper-item.data-v-e85ba00e {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  flex-grow: 0;
-  flex-basis: auto;
-  align-items: stretch;
-  align-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+          flex-grow: 0;
+  -webkit-flex-basis: auto;
+          flex-basis: auto;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+          align-items: stretch;
+  -webkit-align-content: flex-start;
+          align-content: flex-start;
 }
 
 /**
@@ -51,6 +63,7 @@ view.data-v-e85ba00e, scroll-view.data-v-e85ba00e, swiper-item.data-v-e85ba00e {
  */
 .u-fade-enter-active.data-v-e85ba00e,
 .u-fade-leave-active.data-v-e85ba00e {
+  -webkit-transition-property: opacity;
   transition-property: opacity;
 }
 .u-fade-enter.data-v-e85ba00e,
@@ -65,6 +78,7 @@ view.data-v-e85ba00e, scroll-view.data-v-e85ba00e, swiper-item.data-v-e85ba00e {
 }
 .u-fade-zoom-enter-active.data-v-e85ba00e,
 .u-fade-zoom-leave-active.data-v-e85ba00e {
+  -webkit-transition-property: opacity, -webkit-transform;
   transition-property: opacity, -webkit-transform;
   transition-property: transform, opacity;
   transition-property: transform, opacity, -webkit-transform;
@@ -77,6 +91,7 @@ view.data-v-e85ba00e, scroll-view.data-v-e85ba00e, swiper-item.data-v-e85ba00e {
 .u-fade-right-leave-active.data-v-e85ba00e,
 .u-fade-up-enter-active.data-v-e85ba00e,
 .u-fade-up-leave-active.data-v-e85ba00e {
+  -webkit-transition-property: opacity, -webkit-transform;
   transition-property: opacity, -webkit-transform;
   transition-property: opacity, transform;
   transition-property: opacity, transform, -webkit-transform;
@@ -113,6 +128,7 @@ view.data-v-e85ba00e, scroll-view.data-v-e85ba00e, swiper-item.data-v-e85ba00e {
 .u-slide-right-leave-active.data-v-e85ba00e,
 .u-slide-up-enter-active.data-v-e85ba00e,
 .u-slide-up-leave-active.data-v-e85ba00e {
+  -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
@@ -139,6 +155,7 @@ view.data-v-e85ba00e, scroll-view.data-v-e85ba00e, swiper-item.data-v-e85ba00e {
 }
 .u-zoom-enter-active.data-v-e85ba00e,
 .u-zoom-leave-active.data-v-e85ba00e {
+  -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
