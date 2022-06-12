@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "考试导航",
+  "navigationBarTitleText": "网站导航",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "u-swiper": "/uview/components/u-swiper/u-swiper",

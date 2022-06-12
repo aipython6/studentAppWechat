@@ -4,7 +4,7 @@
 		<uni-section :title="parentType" type="line" padding></uni-section>
 		<view class="item">
 			<view v-for="(item,index) in childrenList" :key="item.sid">
-					<boxItem :text="item.name" :bgColor="item.bgColor" :sid="item.sid" @gotoProjectList="gotoProjectList" />
+					<boxItem :obj="item" @gotoProjectList="gotoProjectList" />
 			</view>
 		</view>
 	</view>
@@ -12,6 +12,7 @@
 
 <script>
 	import boxItem from './boxItem.vue'
+	import { updateClickNumSproject } from '@/api/project/project.js'
 	export default {
 		name: 'projectListItem',
 		components: { boxItem },
@@ -32,7 +33,12 @@
 			}
 		},
 		methods: {
-			gotoProjectList({ name, sid }) {
+			// 更新clickNum
+			updateClickNumSproject(data) {
+				updateClickNumSproject(data).then(res => {})
+			},
+			gotoProjectList({ name, sid, clickNum }) {
+				this.updateClickNumSproject({ sid: sid, clickNum: clickNum })
 				uni.navigateTo({
 					url: `./projectDetailList/bookList?name=${name}&sid=${sid}`
 				})

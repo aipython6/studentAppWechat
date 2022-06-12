@@ -28,15 +28,15 @@
 				<view class="study-list">
 					<view style="color: #007AFF;">
 						<view>
-						<text>{{ '当前已有'+ num + '位' }}</text>
+						<text>{{ '当前有'+ num + '位同' }}</text>
 						</view>
 						<view>
-							<text>同学学习了课程</text>
+							<text>学学习了课程</text>
 						</view>
 					</view>
 					<view style="color: #218881;">
 						<view>
-							<text>{{ '当前已有' + exerciseNum +'位' }}</text>
+							<text>{{ '当前有' + exerciseNum +'位' }}</text>
 						</view>
 						<view>
 							<text>同学在做题</text>

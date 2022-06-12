@@ -2,6 +2,7 @@
   "navigationBarTitleText": "个人中心",
   "enablePullDownRefresh": false,
   "usingComponents": {
+    "u-modal": "/uview/components/u-modal/u-modal",
     "userinfo": "/components/myComponents/home/userinfo",
     "menu-list": "/components/myComponents/home/menuList"
   }

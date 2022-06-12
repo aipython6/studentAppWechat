@@ -4,7 +4,7 @@
 		<uni-section :title="'共(' + obj.num + ')章'" type="line" padding color="#2d1add" />
 			<view style="font-size: 12px; color: #e71111; margin-left: 15rpx;">Note: 点击二级标题即可开始学习</view>
 			<view class="first" v-for="item, index in obj.list" :key="index">
-				<view class="second">({{index+1}})---{{ item.label }}</view>
+				<view class="second">{{ item.label }}</view>
 				<view class="third" v-for="subitem, subindex in item.children" :key="subindex">
 					<view class="fourth" @tap="toStudyPage(subitem.id, subitem.label, obj.pname, item.label, obj.pid)">{{ subitem.label}}</view>
 				</view>
@@ -82,7 +82,7 @@
 					font-weight: bold;
 			}
 			.third {
-				margin: 30rpx 0;
+				margin: 40rpx 0;
 			}
 			.fourth {
 					margin-left: 50rpx;

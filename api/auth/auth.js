@@ -25,3 +25,12 @@ export function editUserinfo(data) {
 		data
 	})
 } 
+
+// 注销个人账户
+export function logout(data) {
+	return request({
+		url: 'auth/logout',
+		method: 'POST',
+		data: data
+	})
+}

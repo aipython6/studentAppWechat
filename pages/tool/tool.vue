@@ -14,7 +14,8 @@
 			></u-upload>
 			<view style="color: #2979FF;">识别到的内容</view>
 			<view class="text">
-				{{ words }}
+				<view>{{ words }}</view>
+				<view class="btn"><button @click="clear" type="primary" size="mini" v-if="words">清空内容</button></view>
 			</view>
 	</view>
 </template>
@@ -40,8 +41,8 @@
 				uploadFilePromise(url) {
 					const that = this
 					let a = uni.uploadFile({
-						url: 'http://localhost:8090/api/tool/upload',
-						// url: 'https://www.and2ui.cn:8090/api/tool/upload',
+						// url: 'http://localhost:8090/api/tool/upload',
+						url: 'https://www.and2ui.cn:8090/api/tool/upload',
 						filePath: url,
 						name: 'file',
 						success: (res) => {
@@ -50,6 +51,9 @@
 						}
 					});
 				},
+				clear() {
+					this.words = ''
+				}
 		}
 	}
 </script>
@@ -64,8 +68,11 @@
 		.text {
 			margin: 20rpx;
 			display: flex;
-			justify-content: space-around;
+			flex-direction: column;
 			align-items: center;
+			.btn {
+				margin-top: 20rpx;
+			}
 		}
 	}
 </style>

@@ -22,7 +22,7 @@
 			"path" : "pages/exam/exam",
 			"style" :                                                                                    
 			{
-				"navigationBarTitleText": "考试导航",
+				"navigationBarTitleText": "网站导航",
 				"enablePullDownRefresh": false
 			}
 		},
@@ -140,7 +140,7 @@
 		"list": [
 			{
 				"pagePath": "pages/exam/exam",
-				"text": "考试导航",
+				"text": "网站导航",
 				"iconPath": "static/images/icons/导航.png",
 				"selectedIconPath": "static/images/icons/导航fulled.png"
 			},

@@ -3,8 +3,8 @@
 		<uni-section title="个人基本信息" type="line" padding color="#000000" />
 		<view class="userinfo">
 			<view class="avatar">
-				<u--image :src="defaultAvatar" width="70px" height="70px" shape="square" v-if="!hasLogin" />
-				<u--image :src="userinfo.avatarUrl" width="70px" height="70px" shape="square" v-else />
+				<u--image :src="defaultAvatar" width="70px" height="70px" shape="circle" v-if="!hasLogin" />
+				<u--image :src="userinfo.avatarUrl" width="70px" height="70px" shape="circle" v-else />
 			</view>
 			<view class="base" v-if="hasLogin">
 				<view class="baseinfo" v-if="user.isFull">
@@ -18,15 +18,14 @@
 					<text>邮箱: {{ userinfo.email }}</text>
 				</view>
 				<view v-else @tap='goUserinfo(openid)'>
-					<text>点击完善个人信息</text>
-					<u-badge :isDot="true" :absolute="true" :offset="[110,165]" />
+					<text style="color: #f10b0b;">点击完善个人信息</text>
 				</view>
 			</view>
 			<view v-else>
 				<view class="no-login" @tap='login'>你还未登录,请点击授权登录</view>
 			</view>
 		</view>
-		<u-divider :dashed="true"></u-divider>
+		<u-divider :dashed="true" />
 	</view>
 </template>
 
@@ -100,7 +99,7 @@
 			.base {
 				margin-left: 35rpx;
 				.baseinfo {
-					color: #8F8F94;
+					color: #002d53;
 					height: 100px;
 					display: flex;
 					flex-direction: column;

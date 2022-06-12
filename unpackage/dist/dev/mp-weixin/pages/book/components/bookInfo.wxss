@@ -27,16 +27,12 @@
 /* nview的配置 */
 .container .main.data-v-1603fc63 {
   color: #6b64ab;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
 }
 .container .main .info.data-v-1603fc63 {
   margin-left: 25rpx;
 }
 .container .icon.data-v-1603fc63 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   margin-top: 15rpx;
 }

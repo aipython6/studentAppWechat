@@ -1,9 +1,9 @@
 <template>
 	<!-- 每个children小组件 -->
-	<view class="main" @tap="goProjectDetailList(text, sid)">
+	<view class="main" @tap="goProjectDetailList(obj.name, obj.sid, obj.clickNum)">
 		<view class="box">
-			<view class="img" :style="{backgroundColor: bgColor}">{{ text.charAt(0) }}</view>
-			<text>{{ text }}</text>
+			<view class="img" :style="{backgroundColor: obj.bgColor}">{{ obj.name.charAt(0) }}</view>
+			<text>{{ obj.name }}</text>
 		</view>
 	</view>
 </template>
@@ -11,28 +11,16 @@
 <script>
 	export default {
 		props: {
-			text: {
-				type: String,
+			obj: {
+				type: Object,
 				default: () => {
-					return ''
+					return {}
 				}
 			},
-			bgColor: {
-				type: String,
-				default: () => {
-					return '#2979FF'
-				}
-			},
-			sid: {
-				type: Number,
-				default: () => {
-					return 0
-				}
-			}
 		},
 			methods: {
-				goProjectDetailList(name, sid) {
-					this.$emit('gotoProjectList', { name: name, sid: sid })
+				goProjectDetailList(name, sid, clickNum) {
+					this.$emit('gotoProjectList', { name: name, sid: sid, clickNum: clickNum })
 				}
 			}
 	}

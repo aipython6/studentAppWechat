@@ -1,1 +1,1 @@
-<view data-event-opts="{{[['tap',[['goProjectDetailList',['$0','$1'],['text','sid']]]]]}}" class="main" bindtap="__e"><view class="box"><view class="img" style="{{'background-color:'+(bgColor)+';'}}">{{$root.g0}}</view><text>{{text}}</text></view></view>
+<view data-event-opts="{{[['tap',[['goProjectDetailList',['$0','$1','$2'],['obj.name','obj.sid','obj.clickNum']]]]]}}" class="main" bindtap="__e"><view class="box"><view class="img" style="{{'background-color:'+(obj.bgColor)+';'}}">{{$root.g0}}</view><text>{{obj.name}}</text></view></view>

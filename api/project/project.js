@@ -68,3 +68,12 @@ export function getChapterConentList(data) {
 		data: data
 	})
 }
+
+// 根据sid更新clickNum
+export function updateClickNumSproject(data) {
+	return request({
+		url: 'api/study/updateClickNumSproject',
+		method: 'POST',
+		data: data
+	})
+}

@@ -29,17 +29,12 @@
   margin: 0 10rpx 50rpx 10rpx;
 }
 .container .project .project-list .item.data-v-2fc1a426 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
 }
 .container .study .study-list.data-v-2fc1a426 {
   margin: 0 25rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  justify-content: space-around;
 }
 .container .show-tabs .tabs1.data-v-2fc1a426, .container .show-tabs .tabs2.data-v-2fc1a426 {
   margin-top: 20rpx;
