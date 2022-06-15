@@ -96,22 +96,22 @@ var components
 try {
   components = {
     uSearch: function() {
-      return Promise.all(/*! import() | uview/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-search/u-search.vue */ 454))
+      return Promise.all(/*! import() | uview/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-search/u-search.vue */ 462))
     },
     uCollapse: function() {
-      return Promise.all(/*! import() | uview/components/u-collapse/u-collapse */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-collapse/u-collapse")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-collapse/u-collapse.vue */ 507))
+      return Promise.all(/*! import() | uview/components/u-collapse/u-collapse */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-collapse/u-collapse")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-collapse/u-collapse.vue */ 515))
     },
     uCollapseItem: function() {
-      return Promise.all(/*! import() | uview/components/u-collapse-item/u-collapse-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-collapse-item/u-collapse-item")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-collapse-item/u-collapse-item.vue */ 515))
+      return Promise.all(/*! import() | uview/components/u-collapse-item/u-collapse-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-collapse-item/u-collapse-item")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-collapse-item/u-collapse-item.vue */ 523))
     },
     "u-Image": function() {
-      return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 523))
+      return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 531))
     },
     uLink: function() {
-      return Promise.all(/*! import() | uview/components/u-link/u-link */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-link/u-link")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-link/u-link.vue */ 529))
+      return Promise.all(/*! import() | uview/components/u-link/u-link */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-link/u-link")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-link/u-link.vue */ 537))
     },
     uLoadmore: function() {
-      return Promise.all(/*! import() | uview/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-loadmore/u-loadmore.vue */ 537))
+      return Promise.all(/*! import() | uview/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-loadmore/u-loadmore.vue */ 545))
     }
   }
 } catch (e) {

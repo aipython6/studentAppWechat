@@ -220,16 +220,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
 var _images = __webpack_require__(/*! @/api/images/images.js */ 149);
 var _edit_project = __webpack_require__(/*! @/api/project/edit_project.js */ 150);
 var _exercise = __webpack_require__(/*! @/api/project/exercise.js */ 151);

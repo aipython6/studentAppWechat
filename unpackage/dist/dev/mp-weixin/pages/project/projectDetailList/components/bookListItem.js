@@ -80,7 +80,7 @@ var components
 try {
   components = {
     "u-Image": function() {
-      return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 523))
+      return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 531))
     },
     uDivider: function() {
       return Promise.all(/*! import() | uview/components/u-divider/u-divider */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-divider/u-divider")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-divider/u-divider.vue */ 629))

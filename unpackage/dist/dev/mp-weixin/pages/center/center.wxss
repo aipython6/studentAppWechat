@@ -33,8 +33,6 @@
 }
 .container .study .study-list.data-v-2fc1a426 {
   margin: 0 25rpx;
-  display: flex;
-  justify-content: space-around;
 }
 .container .show-tabs .tabs1.data-v-2fc1a426, .container .show-tabs .tabs2.data-v-2fc1a426 {
   margin-top: 20rpx;

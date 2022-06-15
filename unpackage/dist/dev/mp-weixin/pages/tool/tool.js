@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uUpload: function() {
-      return Promise.all(/*! import() | uview/components/u-upload/u-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-upload/u-upload")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-upload/u-upload.vue */ 497))
+      return Promise.all(/*! import() | uview/components/u-upload/u-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-upload/u-upload")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-upload/u-upload.vue */ 505))
     }
   }
 } catch (e) {

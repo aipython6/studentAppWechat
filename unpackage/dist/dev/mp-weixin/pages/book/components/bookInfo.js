@@ -80,10 +80,10 @@ var components
 try {
   components = {
     "u-Image": function() {
-      return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 523))
+      return Promise.all(/*! import() | uview/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uview/components/u--image/u--image.vue */ 531))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uview/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-icon/u-icon.vue */ 565))
+      return Promise.all(/*! import() | uview/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-icon/u-icon.vue */ 573))
     }
   }
 } catch (e) {

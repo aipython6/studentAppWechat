@@ -80,7 +80,7 @@ var components
 try {
   components = {
     uLine: function() {
-      return Promise.all(/*! import() | uview/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-line/u-line.vue */ 752))
+      return Promise.all(/*! import() | uview/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-line/u-line.vue */ 704))
     }
   }
 } catch (e) {

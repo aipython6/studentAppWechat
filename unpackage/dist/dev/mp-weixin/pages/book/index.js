@@ -99,7 +99,7 @@ try {
       return __webpack_require__.e(/*! import() | components/uni/uni-section/uni-section */ "components/uni/uni-section/uni-section").then(__webpack_require__.bind(null, /*! @/components/uni/uni-section/uni-section.vue */ 405))
     },
     uGap: function() {
-      return Promise.all(/*! import() | uview/components/u-gap/u-gap */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-gap/u-gap")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-gap/u-gap.vue */ 462))
+      return Promise.all(/*! import() | uview/components/u-gap/u-gap */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-gap/u-gap")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-gap/u-gap.vue */ 470))
     },
     uTabs: function() {
       return Promise.all(/*! import() | uview/components/u-tabs/u-tabs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-tabs/u-tabs")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-tabs/u-tabs.vue */ 412))

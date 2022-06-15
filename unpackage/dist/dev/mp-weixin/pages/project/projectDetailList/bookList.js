@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uSearch: function() {
-      return Promise.all(/*! import() | uview/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-search/u-search.vue */ 454))
+      return Promise.all(/*! import() | uview/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uview/components/u-search/u-search.vue */ 462))
     },
     uniSection: function() {
       return __webpack_require__.e(/*! import() | components/uni/uni-section/uni-section */ "components/uni/uni-section/uni-section").then(__webpack_require__.bind(null, /*! @/components/uni/uni-section/uni-section.vue */ 405))

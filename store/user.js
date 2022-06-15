@@ -59,17 +59,23 @@ const user = {
 					resolve(content)
 				})
 			})
+		},
+		
+		// 用户注销
+		logout({ commit }) {
+			return new Promise((resolve, reject) => {
+				commit('SET_SESSIONKEY', '')
+				commit('SET_HASLOGIN', false)
+				removeOpenid()
+				removeToken()
+				removeHasLogin()
+				resolve()
+			})
 		}
 	}
 }
 
-export const logout = (commit) => {
-	commit('SET_SESSIONKEY', '')
-	commit('SET_HASLOGIN', false)
-	removeOpenid()
-	removeToken()
-	removeHasLogin()
-}
+
 
 export const setUserInfo = (res, commit) => {
 	commit('SET_USER', res)
